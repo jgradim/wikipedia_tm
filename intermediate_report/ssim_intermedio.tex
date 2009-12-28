@@ -8,6 +8,7 @@
 \usepackage{makeidx}  % allows for indexgeneration
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage{indentfirst}
 %
 \begin{document}
 
@@ -37,15 +38,59 @@ using at least 70 and at most 150 words. It will be set in 9-point
 font size and be inset 1.0 cm from the right and left margins.
 There will be two blank lines before and after the Abstract. \dots
 \end{abstract}
-%
-\section{Sec}
 
 %
-\subsection{Subsec}
-%
+\section{The problem}
+
+Information relative to historical events is readily available on Wikipedia. However, this information is not easily searchable: it requires manual searching through entire articles to find a specific piece of information.
 
 %
-\subsubsection{Subsubsec}
+\section{Objectives}
+
+The main objectives of this project are:
+
+\begin{itemize}
+	\item to provide an easily queryable database of historical events of major importance
+	\item To allow users to use natural language to perform queries
+	\item To be able to cross-reference historical events and link figures, places
+\end{itemize}
+
+\section{Motivation}
+
+Younger population knows progressively less and less about history and human achievements. A simple interface would provide a means to an easy access to information and could boost interest in learning.\\
+
+\section{State of the Art}
+
+\subsection{Natural Language Processing and Tokenization}
+
+\begin{itemize}
+	\item The Stanford Parser
+\end{itemize}
+
+\subsection{HTML Parsing (Ruby)}
+
+\begin{itemize}
+	\item HPricot
+	\item Nokogiri
+\end{itemize}
+
+\subsection{Classification and  Machine Learning}
+
+\begin{itemize}
+	\item Support Vector Machines
+	\item Naïve Bayes Classification
+	\begin{itemize}
+		\item Bayesian Networks
+	\end{itemize}
+\end{itemize}
+
+\section{Current Work}
+
+\begin{itemize}
+	\item Research
+	\item Text structure and markup analysis
+	\item Tool testing
+\end{itemize}
 
 %
 % ---- Bibliography ----
@@ -57,29 +102,6 @@ Clarke, F., Ekeland, I.:
 Nonlinear oscillations and
 boundary-value problems for Hamiltonian systems.
 Arch. Rat. Mech. Anal. 78, 315--333 (1982)
-
-\bibitem[1981]{2clar:eke:2}
-Clarke, F., Ekeland, I.:
-Solutions p\'{e}riodiques, du
-p\'{e}riode donn\'{e}e, des \'{e}quations hamiltoniennes.
-Note CRAS Paris 287, 1013--1015 (1978)
-
-\bibitem[1982]{2mich:tar}
-Michalek, R., Tarantello, G.:
-Subharmonic solutions with prescribed minimal
-period for nonautonomous Hamiltonian systems.
-J. Diff. Eq. 72, 28--55 (1988)
-
-\bibitem[1983]{2tar}
-Tarantello, G.:
-Subharmonic solutions for Hamiltonian
-systems via a $\bbbz_{p}$ pseudoindex theory.
-Annali di Matematica Pura (to appear)
-
-\bibitem[1985]{2rab}
-Rabinowitz, P.:
-On subharmonic solutions of a Hamiltonian system.
-Comm. Pure Appl. Math. 33, 609--633 (1980)
 
 \end{thebibliography}
 \clearpage
