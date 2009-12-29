@@ -1,0 +1,76 @@
+% This is LLNCS.DEM the demonstration file of
+% the LaTeX macro package from Springer-Verlag
+% for Lecture Notes in Computer Science,
+% version 2.3 for LaTeX2e
+%
+\documentclass{llncs}
+%
+\usepackage{makeidx}  % allows for indexgeneration
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{indentfirst}
+%
+\begin{document}
+
+\mainmatter              % start of the contributions
+%
+\title{Text Mining Wikipedia\\to extract historical facts}
+%
+\titlerunning{Hamiltonian Mechanics}  % abbreviated title (for running head)
+%                                     also used for the TOC unless
+%                                     \toctitle is used
+%
+\author{João Valente \and João Gradim}
+%
+\authorrunning{João Valente, João Gradim}   % abbreviated author list (for running head)
+%
+%%%% list of authors for the TOC (use if author list has to be modified)
+\tocauthor{João Valente, João Gradim}
+%
+\institute{Faculdade de Engenharia da Universidade do Porto,\\
+Rua do Dr. Roberto Frias, s/n, Porto, Portugal}
+
+\maketitle              % typeset the title of the contribution
+
+\begin{abstract}
+The abstract should summarize the contents of the paper
+using at least 70 and at most 150 words. It will be set in 9-point
+font size and be inset 1.0 cm from the right and left margins.
+There will be two blank lines before and after the Abstract. \dots
+\end{abstract}
+
+%
+\section{Main implementation problems}
+
+Wikipedia is an open knowledge base, relying mainly on user generated content. As such, it's difficult to ensure a proper and constant textual structure for information. Although the pages for the most recent centuries (aprox. 18th century) have a well defined an constant HTML strutcture that allows for reliable information retrieval.\\
+\ \\
+This openness lead to another problem: an HTML structure not suited for easy parsing. A series of workarounds had to be implemented to successfuly extract useful information.
+
+%
+% ---- Bibliography ----
+%
+\begin{thebibliography}{}
+%
+\bibitem[1990]{santorini}
+Santorini, B. :
+Part-of-Speech Tagging Guidelines for the
+Penn Treebank Project (3rd Revision, 2nd Printing).
+(July 1990)
+
+\bibitem[1995]{bies}
+Bies, A., Ferguson, M., Katz, K., MacIntyre, R. :
+Bracketing Guidelines for Treebank II
+Penn Treebank Project
+(June 1995)
+
+\end{thebibliography}
+\clearpage
+\addtocmark[2]{Author Index} % additional numbered TOC entry
+\renewcommand{\indexname}{Author Index}
+\printindex
+\clearpage
+\addtocmark[2]{Subject Index} % additional numbered TOC entry
+\markboth{Subject Index}{Subject Index}
+\renewcommand{\indexname}{Subject Index}
+\input{subjidx.ind}
+\end{document}
