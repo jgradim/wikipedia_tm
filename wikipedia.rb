@@ -24,8 +24,5 @@ for year in 1912..1912
 				puts date.to_s + " - " + sentence.to_s
 			end
 		end
-		
-		
-		
 	end
 end
