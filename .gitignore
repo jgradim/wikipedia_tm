@@ -1,0 +1,4 @@
+wikipedia/log/*.log
+wikipedia/tmp/**/*
+wikipedia/doc/api
+wikipedia/doc/app
