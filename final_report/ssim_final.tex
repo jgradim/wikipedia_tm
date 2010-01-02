@@ -45,13 +45,16 @@ There will be two blank lines before and after the Abstract. \dots
 
 \begin{verbatim}
 ...
-(PP (IN in)
+(PP (IN in|TO to)
   (NP (NNP x))
 
 or
 
-(PP (IN in)
-  (NP (NNP x) (, ,) (NNP y))
+(PP (IN in|TO to)
+  (NP
+	(NP (NNP X))
+	(, ,)
+	(NP (NNP Y) (NNP Z))))
 ...
 \end{verbatim}
 
