@@ -15,7 +15,7 @@ def find_location(tree)
 		end
 	end
 	
-	location.scan(/([\w,]+)(?=\))/).join(" ").gsub(/^in /i, '').gsub(' ,', ',')
+	location.scan(/([\w,]+)(?=\))/).join(" ").gsub(/^in |^from |^of /i, '').gsub(' ,', ',')
 end
 
 parser = StanfordParser::LexicalizedParser.new
