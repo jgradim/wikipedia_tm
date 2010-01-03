@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date: 2010-01-03
+  description: MyText
+  type: MyString
+  who: MyString
+  local: MyString
+  lat: 1.5
+  lng: 1.5
+
+two:
+  date: 2010-01-03
+  description: MyText
+  type: MyString
+  who: MyString
+  local: MyString
+  lat: 1.5
+  lng: 1.5

@@ -16,7 +16,7 @@
 %
 \title{Text Mining Wikipedia\\to extract historical facts}
 %
-\titlerunning{Hamiltonian Mechanics}  % abbreviated title (for running head)
+\titlerunning{Text Mining Wikipedia\\to extract historical facts}  % abbreviated title (for running head)
 %                                     also used for the TOC unless
 %                                     \toctitle is used
 %
@@ -39,10 +39,31 @@ font size and be inset 1.0 cm from the right and left margins.
 There will be two blank lines before and after the Abstract. \dots
 \end{abstract}
 
+\section{Natural Language Processing}
+
+\subsection{Local extraction}
+
+\begin{verbatim}
+...
+(PP (IN in|TO to)
+  (NP (NNP x))
+
+or
+
+(PP (IN in|TO to)
+  (NP
+	(NP (NNP X))
+	(, ,)
+	(NP (NNP Y) (NNP Z))))
+...
+\end{verbatim}
+
+This kind of structure is present on most events parsed from Wikipedia and allows the retrieval of the phisical location of the occurence, mainly the country or a city in a determined country.
+
 %
 \section{Main implementation problems}
 
-Wikipedia is an open knowledge base, relying mainly on user generated content. As such, it's difficult to ensure a proper and constant textual structure for information. Although the pages for the most recent centuries (aprox. 18th century) have a well defined an constant HTML strutcture that allows for reliable information retrieval.\\
+Wikipedia is an open knowledge base, relying mainly on user generated content. As such, it's difficult to ensure a proper and constant textual structure for information. Although the pages for the most recent centuries (aprox. 18th century) have a well defined an constant HTML strutcture that allows for reliable information retrieval, there are many years that don't follow this structure, leading to specific parsing cases.\\
 \ \\
 This openness lead to another problem: an HTML structure not suited for easy parsing. A series of workarounds had to be implemented to successfuly extract useful information.
 
