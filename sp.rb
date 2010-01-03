@@ -36,6 +36,7 @@ def is_location(it)
 	[["PP", "IN", "NP", "NNP"],
 	 ["PP", "TO", "NP", "NNP"],
 	 ["PP", "IN", "NP", "NP", "NNP"],
+	 ["PP", "IN", "NP", "DT", "NNPS"], # the netherlands :x
 	 ["PP", "TO", "NP", "NP", "NNP"],
 	 ["PP", "IN", "NP", "DT", "NNP"]].include? nodes
 end
