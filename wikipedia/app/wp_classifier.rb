@@ -1,3 +1,7 @@
+require 'rubygems'
+require 'stemmer'
+require 'classifier'
+
 class WPClassifier
 
 	def initialize
