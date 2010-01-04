@@ -12,6 +12,3 @@ ta = TreeAnalyzer.new(tree)
 
 puts ta.get_people
 puts ta.find_location
-
-puts "Location    : "+loc
-puts "Coordinates : "+coords_from_location(loc).join(", ") if loc

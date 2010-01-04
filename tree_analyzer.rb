@@ -36,8 +36,6 @@ class TreeAnalyzer
 			node = it.next
 			if node.label.to_s == 'NP' and (n = refers_to_person(node))
 			
-				puts node.toString
-		
 				# prepare string for children inspection
 				# (remove root element and last closing parenthesis)
 				toks = node.toString.gsub(/^\(.*\] (?=\()/, '').chop
@@ -48,8 +46,6 @@ class TreeAnalyzer
 				# splits the tokens into an array; \s* ensures the last ) is also removed
 				# even if it's not succeeded by whitespace
 				names = toks.split(/\)\s*/).map{ |x| x.gsub(/^\([A-Z]*\s*/, '') }
-				
-				puts names.inspect
 			
 				# now we have a structure like this to extract names:
 				# n    : [[0,3], [4,2]]
@@ -72,7 +68,6 @@ class TreeAnalyzer
 		return nil if @obj["Status"]["code"] != 200
 	
 		@obj["Placemark"][0]["Point"]["coordinates"]
-
 	end
 
 	##
@@ -128,7 +123,6 @@ class TreeAnalyzer
 		nnps.reject!{ |x| x.last < 2 }
 	
 		return nnps.empty? ? false : nnps
-	
 	end
 
 end
