@@ -15,9 +15,10 @@ for year in 1000..2000
 	if data.to_s == ''
 		data = doc.xpath("//span[starts-with(@id,'Births')]//../../preceding::span[@class='mw-headline']/parent::h2/following-sibling::ul[1]/li")
 		if data.to_s == ''
-		data = doc.xpath("//span[starts-with(@id,'Deaths')]//../../preceding::span[@class='mw-headline']/parent::h2/following-sibling::ul[1]/li")
+			data = doc.xpath("//span[starts-with(@id,'Deaths')]//../../preceding::span[@class='mw-headline']/parent::h2/following-sibling::ul[1]/li")
+		end
 	end
-	end
+	
 	data.each do |event|
 		temp = Date.parse("#{year.to_s} " + event.text) rescue Date.ordinal(year)
 		date = Date.new(year, temp.month.to_i, temp.day.to_i)
