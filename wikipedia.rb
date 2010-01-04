@@ -3,34 +3,49 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 
-for year in 1000..2000
-	doc = Nokogiri::HTML(open("http://en.wikipedia.org/wiki/#{year}"))
+class WikipediaExtractor
 
-	data = doc.xpath("//span[starts-with(@id,'Births')]//../../preceding::span[@class='mw-headline']/parent::h3/following-sibling::ul[1]/li")
-
-	if data.to_s == ''
-		data = doc.xpath("//span[starts-with(@id,'Deaths')]//../../preceding::span[@class='mw-headline']/parent::h3/following-sibling::ul[1]/li")
+	def initialize
+		@base_url = 'http://en.wikipedia.org/wiki/'
 	end
 	
-	if data.to_s == ''
-		data = doc.xpath("//span[starts-with(@id,'Births')]//../../preceding::span[@class='mw-headline']/parent::h2/following-sibling::ul[1]/li")
+	##
+	# Get wikipedia events for a certain year
+	def get_events(year)
+	
+		url = URI.escape("#{@base_url}#{year}")	
+		doc = Nokogiri::HTML(open(url))
+		
+		data = doc.xpath("//span[starts-with(@id,'Births')]//../../preceding::span[@class='mw-headline']/parent::h3/following-sibling::ul[1]/li")
+
 		if data.to_s == ''
-			data = doc.xpath("//span[starts-with(@id,'Deaths')]//../../preceding::span[@class='mw-headline']/parent::h2/following-sibling::ul[1]/li")
+			data = doc.xpath("//span[starts-with(@id,'Deaths')]//../../preceding::span[@class='mw-headline']/parent::h3/following-sibling::ul[1]/li")
 		end
-	end
 	
-	data.each do |event|
-		temp = Date.parse("#{year.to_s} " + event.text) rescue Date.ordinal(year)
-		date = Date.new(year, temp.month.to_i, temp.day.to_i)
-
-		if event.at_css('ul') == nil
-			sentence = event.text.gsub(/^.* – /, '')
-			puts date.to_s + " - " + sentence.to_s
-		else
-			event.css("li").each do |sub_event|
-				sentence = sub_event.text
-				puts date.to_s + " - " + sentence.to_s
+		if data.to_s == ''
+			data = doc.xpath("//span[starts-with(@id,'Births')]//../../preceding::span[@class='mw-headline']/parent::h2/following-sibling::ul[1]/li")
+			if data.to_s == ''
+				data = doc.xpath("//span[starts-with(@id,'Deaths')]//../../preceding::span[@class='mw-headline']/parent::h2/following-sibling::ul[1]/li")
 			end
 		end
+		
+		# process all events found
+		events = []
+		data.each do |event|
+			temp = Date.parse("#{year.to_s} " + event.text) rescue Date.ordinal(year)
+			date = Date.new(year, temp.month.to_i, temp.day.to_i)
+
+			if event.at_css('ul') == nil
+				sentence = event.text.gsub(/^.* – /, '')
+				events << { :date => date, :description => sentence }
+			else
+				event.css("li").each do |sub_event|
+					sentence = sub_event.text
+					events << { :date => date, :description => sentence }
+				end
+			end
+		end
+		events
 	end
+
 end
