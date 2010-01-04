@@ -9,6 +9,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{subfig}
 %
 \begin{document}
 
@@ -43,29 +45,24 @@ There will be two blank lines before and after the Abstract. \dots
 
 \subsection{People Extraction}
 
-\begin{verbatim}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=40mm]{dia/people.eps}
+	\caption{Subtree relating to proper nouns, from where names of people involved can be extracted}
+	\label{fig:people_extraction}
+\end{figure}
 
-(NP
-  (...) (NNP) (NNP) (...))
-
-\end{verbatim}
-
+\newpage
 \subsection{Local extraction}
 
-\begin{verbatim}
-...
-(PP (IN in|TO to)
-  (NP (NNP x))
-
-or
-
-(PP (IN in|TO to)
-  (NP
-	(NP (NNP X))
-	(, ,)
-	(NP (NNP Y) (NNP Z))))
-...
-\end{verbatim}
+\begin{figure}[h]
+	\centering
+	\subfloat[Local extraction pattern 1]{\label{fig:local_1}\includegraphics[width=0.35\textwidth]{dia/local_1.eps}}     
+	\hspace{20mm}
+	\subfloat[Local extraction pattern 2]{\label{fig:local_2}\includegraphics[width=0.45\textwidth]{dia/local_2.eps}}
+	\caption{Subtrees for event location extraction}
+	\label{fig:locals}
+\end{figure}
 
 This kind of structure is present on most events parsed from Wikipedia and allows the retrieval of the phisical location of the occurence, mainly the country or a city in a determined country.
 
