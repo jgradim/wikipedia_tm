@@ -36,11 +36,15 @@ def get_people(tree)
 			
 			# splits the tokens into an array; \s* ensures the last ) is also removed
 			# even if it's not succeeded by whitespace
-			names = toks.split(/\)\s*/)#.map{ |x| x.gsub(/^\([A-Z]*\s*/, '') }
+			names = toks.split(/\)\s*/).map{ |x| x.gsub(/^\([A-Z]*\s*/, '') }
 			
-			puts names.inspect
+			# now we have a structure like this to extract names:
+			# n    : [[0,3], [4,2]]
+			# names: ["George", "W.", "Bush", "and", "Al", "Gore"]
+			people << n.inject([]){ |acum,obj| acum << names.slice(obj.first, obj.last).join(" ") }
 		end
 	end
+	people.flatten
 end
 
 # determines if a subtree is a location
@@ -64,26 +68,32 @@ end
 
 # returns false or array with number of all sequences of
 # singular, adjacent, proper nouns (NNPS) longer than 2 elements
+#
+# [[start_pos, length], [...]]
 def refers_to_person(it)
 
 	nodes = it.localTree.inject([]){ |acum, obj| acum << obj.label.to_s }
 	
 	# count number of adjacent "NNP" in nodes, starting with the first found
 	original_size = nodes.size
-	nnps = [0]
+	nnps = [[0,0]]
 	while not nodes.empty?
 		n = nodes.shift
 		if n == "NNP"
-			#nnps.last += 1 -> does not work
-			
-			nnps << nnps.pop + 1
-		elsif n != "NNP" and nnps.last > 0
-			nnps << 0
+			l = nnps.pop
+			if l.last == 0
+				nnps << [original_size - nodes.size - 2, 1]
+			else
+				nnps << [l.first, l.last + 1]
+			end
+		elsif n != "NNP" and nnps.last.last > 0
+			nnps << [0,0]
 		end
 	end
 	
 	# remove all subsequences less than 2 NNPs long
-	nnps.reject!{ |x| x < 2 }
+	#nnps.reject!{ |x| x < 2 }
+	nnps.reject!{ |x| x.last < 2 }
 	
 	return nnps.empty? ? false : nnps
 	
@@ -107,7 +117,7 @@ parser = StanfordParser::LexicalizedParser.new
 sentence = ARGV[0] || "The 1988 Summer Olympics are held in Seoul, South Korea."
 tree = parser.apply(sentence)
 
-get_people(tree)
+puts get_people(tree).inspect
 
 loc = find_location(tree)
 
