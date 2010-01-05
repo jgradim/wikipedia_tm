@@ -54,6 +54,8 @@ task :get_events do
 		f.write("@events = ")
 		f.write(arevents.inspect)
 	end
-	puts "Created file events.rb in lib/tasks directory. Please run rake populate_db to create events."
+	puts "Created file events.rb in lib/tasks."
+	puts "It contains an array (@events) of all extracted events."
+	puts "Use it to populate the database using the Rails console."
 	
 end
