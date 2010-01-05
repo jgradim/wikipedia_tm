@@ -22,7 +22,7 @@
 %                                     also used for the TOC unless
 %                                     \toctitle is used
 %
-\author{João Valente \and João Gradim}
+\author{João Valente\inst{1} \and João Gradim\inst{1}}
 %
 \authorrunning{João Valente, João Gradim}   % abbreviated author list (for running head)
 %
@@ -58,27 +58,9 @@ Younger population knows progressively less and less about history and human ach
 
 \section{State of the Art}
 
-\subsection{Natural Language Processing and Tokenization}
+Text mining is the process of extracting high quality, useful data from text. This can be accomplished through semantical and phrasal structure analysis. The Stanford Parser is a probabilist parser that aims to produce the \textit{most likely} analysis of new sentences; although this can sometimes lead to some errors, the overall result is very satisfactory, producing acurate trees for almost every parsed sentence(s).\\
 
-\begin{itemize}
-	\item The Stanford Parser
-\end{itemize}
-
-\subsection{HTML Parsing (Ruby)}
-
-\begin{itemize}
-	\item HPricot
-	\item Nokogiri
-\end{itemize}
-
-\subsection{Classification and Machine Learning (Ruby)}
-
-\begin{itemize}
-	\item Naïve Bayes Classification
-	\begin{itemize}
-		\item Bayesian Networks
-	\end{itemize}
-\end{itemize}
+Text classification is a problem that aims to categorize documents or simple sentences in one or more categories, based on their contents. This can be achieved using either Support Vector Machines or a Naïve Bayes classifier. Unlike Support Vector Machines, which produce a \textit{binary classification}, i.e. either the text is in a certain category or isn't, a Naïve Bayes classifier allows for a number of arbitrary categories. A Naïve Bayes classifier can be trained using a set of pre-classified sentences in a \textit{supervised learning} setting, yielding very satisfactory results when classifying unknown sentences (about 80\%-90\% of correct results, depending on the size and quality of the training set).
 
 \section{Text Extraction}
 
@@ -86,25 +68,31 @@ Younger population knows progressively less and less about history and human ach
 
 \section{Natural Language Processing}
 
+A parse tree containing the phrasal structure of a sentence can be obtained by using the \verb!LexicalizedParser! class present in the Stanford Parser. This tree can be used to derive (if present) either the location of the event and the people involved. Sections \ref{chp:people-extraction} and \ref{chp:local-extraction} show the tree structures used for the extraction of such informations.
+
 \subsection{People Extraction}
+\label{chp:people-extraction}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=40mm]{dia/people.eps}
-	\caption{Subtree relating to proper nouns, from where names of people involved can be extracted}
-	\label{fig:people_extraction}
+	\caption{People extraction tree pattern}
+	\label{fig:people-extraction}
 \end{figure}
+
+Figure \ref{fig:people-extraction} shows the subtree relating to singular proper nouns (NNP) nodes, from where people involved in the event can be extracted. As the phrasal structure does not allow for easy extraction of this information (this structure alone can not infer if the proper nouns refer to a country or a name or even a brand), only when an NP (noun phrase) node has at least two contiguous NNP child nodes is a name extracted.
 
 \newpage
 \subsection{Local extraction}
+\label{chp:local-extraction}
 
 \begin{figure}[h]
 	\centering
-	\subfloat[Local extraction pattern 1]{\label{fig:local_1}\includegraphics[width=0.35\textwidth]{dia/local_1.eps}}     
+	\subfloat[Location extraction tree pattern 1]{\label{fig:local_1}\includegraphics[width=0.3\textwidth]{dia/local_1.eps}}     
 	\hspace{20mm}
-	\subfloat[Local extraction pattern 2]{\label{fig:local_2}\includegraphics[width=0.45\textwidth]{dia/local_2.eps}}
+	\subfloat[Location extraction tree pattern 2]{\label{fig:local_2}\includegraphics[width=0.4\textwidth]{dia/local_2.eps}}
 	\caption{Subtrees for event location extraction}
-	\label{fig:locals}
+	\label{fig:location-extraction}
 \end{figure}
 
 This kind of structure is present on most events parsed from Wikipedia and allows the retrieval of the phisical location of the occurence, mainly the country or a city in a determined country.
