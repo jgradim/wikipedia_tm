@@ -46,7 +46,7 @@ There will be two blank lines before and after the Abstract. \dots
 \section{Objectives}
 
 \begin{itemize}
-	\item To provide an easily queryable database of historical events of major importance
+	\item To provide an easily query-able database of historical events of major importance
 	\item To allow users to use natural language to perform queries
 	\item To be able to cross-reference historical events and link figures, places
 	\item To be able to group events in categories to further refine search
@@ -58,9 +58,9 @@ Younger population knows progressively less and less about history and human ach
 
 \section{State of the Art}
 
-Text mining is the process of extracting high quality, useful data from text. This can be accomplished through semantical and phrasal structure analysis. The Stanford Parser is a probabilist parser that aims to produce the \textit{most likely} analysis of new sentences; although this can sometimes lead to some errors, the overall result is very satisfactory, producing acurate trees for almost every parsed sentence(s).\\
+Text mining is the process of extracting high quality, useful data from text. This can be accomplished through semantical and phrasal structure analysis. The Stanford Parser is a probabilist parser that aims to produce the \textit{most likely} analysis of new sentences; although this can sometimes lead to some errors, the overall result is very satisfactory, producing accurate trees for almost every parsed sentence(s).\\
 
-Text classification is a problem that aims to categorize documents or simple sentences in one or more categories, based on their contents. This can be achieved using either Support Vector Machines or a Naïve Bayes classifier. Unlike Support Vector Machines, which produce a \textit{binary classification}, i.e. either the text is in a certain category or isn't, a Naïve Bayes classifier allows for a number of arbitrary categories. A Naïve Bayes classifier can be trained using a set of pre-classified sentences in a \textit{supervised learning} setting, yielding very satisfactory results when classifying unknown sentences (about 80\%-90\% of correct results, depending on the size and quality of the training set).
+Text classification is a problem that aims to categorize documents or simple sentences in one or more categories, based on their contents. This can be achieved using either Support Vector Machines or a Naive Bayes classifier. Unlike Support Vector Machines, which produce a \textit{binary classification}, i.e. either the text is in a certain category or isn't, a Naive Bayes classifier allows for a number of arbitrary categories. A Naive Bayes classifier can be trained using a set of pre-classified sentences in a \textit{supervised learning} setting, yielding very satisfactory results when classifying unknown sentences (about 80\%-90\% of correct results, depending on the size and quality of the training set).
 
 \section{Text Extraction}
 
@@ -80,7 +80,7 @@ A parse tree containing the phrasal structure of a sentence can be obtained by u
 	\label{fig:people-extraction}
 \end{figure}
 
-Figure \ref{fig:people-extraction} shows the subtree relating to singular proper nouns (NNP) nodes, from where people involved in the event can be extracted. As the phrasal structure does not allow for easy extraction of this information (this structure alone can not infer if the proper nouns refer to a country or a name or even a brand), only when an NP (noun phrase) node has at least two contiguous NNP child nodes is a name extracted.
+Fig. \ref{fig:people-extraction} shows the sub-tree relating to singular proper nouns (NNP) nodes, from where people involved in the event can be extracted. As the phrasal structure does not allow for easy extraction of this information (this structure alone can not infer if the proper nouns refer to a country or a name or even a brand), only when an NP (noun phrase) node has at least two contiguous NNP child nodes is a name extracted.
 
 \newpage
 \subsection{Local extraction}
@@ -91,18 +91,20 @@ Figure \ref{fig:people-extraction} shows the subtree relating to singular proper
 	\subfloat[Location extraction tree pattern 1]{\label{fig:local_1}\includegraphics[width=0.3\textwidth]{dia/local_1.eps}}     
 	\hspace{20mm}
 	\subfloat[Location extraction tree pattern 2]{\label{fig:local_2}\includegraphics[width=0.4\textwidth]{dia/local_2.eps}}
-	\caption{Subtrees for event location extraction}
+	\caption{Sub-trees for event location extraction}
 	\label{fig:location-extraction}
 \end{figure}
 
-This kind of structure is present on most events parsed from Wikipedia and allows the retrieval of the phisical location of the occurence, mainly the country or a city in a determined country.
+Fig. \ref{fig:location-extraction} shows the sub-trees used for extraction the location of the parsed event. A location almost always occurs inside a PP (prepositional phrase) node, and the structure of the descendant nodes determines if it refers to a location, be it a city, a country (Fig. \ref{fig:location-extraction} (a)), or a \textit{complex} location, like a city followed by its country (Fig. \ref{fig:location-extraction} (b)).\\
+
+This kind of structure is present on most events parsed from Wikipedia and allows the retrieval of the physical location of the occurrence, mainly the country or a city in a determined country.
 
 %
 \section{Main implementation problems}
 
-Wikipedia is an open knowledge base, relying mainly on user generated content. As such, it's difficult to ensure a proper and constant textual structure for information. Although the pages for the most recent centuries (aprox. 18th century) have a well defined an constant HTML strutcture that allows for reliable information retrieval, there are many years that don't follow this structure, leading to specific parsing cases.\\
+Wikipedia is an open knowledge base, relying mainly on user generated content. As such, it's difficult to ensure a proper and constant textual structure for information. Although the pages for the most recent centuries (approx. 18th century) have a well defined an constant HTML structure that allows for reliable information retrieval, there are many years that don't follow this structure, leading to specific parsing cases.\\
 \ \\
-This openness lead to another problem: an HTML structure not suited for easy parsing. A series of workarounds had to be implemented to successfuly extract useful information.
+This openness lead to another problem: an HTML structure not suited for easy parsing. A series of workarounds had to be implemented to successfully extract useful information.
 
 \newpage
 %
