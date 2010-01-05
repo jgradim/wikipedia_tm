@@ -37,11 +37,11 @@ class WikipediaExtractor
 
 			if event.at_css('ul') == nil
 				sentence = event.text.gsub(/^.* – /, '')
-				events << { :date => date, :description => sentence }
+				events << { :date => date.to_s, :description => sentence }
 			else
 				event.css("li").each do |sub_event|
 					sentence = sub_event.text
-					events << { :date => date, :description => sentence }
+					events << { :date => date.to_s, :description => sentence }
 				end
 			end
 		end
