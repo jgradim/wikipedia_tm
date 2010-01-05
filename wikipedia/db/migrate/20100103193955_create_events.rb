@@ -4,8 +4,8 @@ class CreateEvents < ActiveRecord::Migration
       t.date :date
       t.text :description
       t.string :type
-      t.string :who
-      t.string :local
+      t.string :people
+      t.string :location
       t.float :lat
       t.float :lng
 
