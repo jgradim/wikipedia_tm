@@ -53,8 +53,10 @@ There will be two blank lines before and after the Abstract. \dots
 \end{itemize}
 
 \section{Motivation}
+Each year an large amount of great events take place in our world. A new page of history is written and we all must be aware of it, in order to better understand the mankind. Unfortunnatly younger population knows progressively less and less about history and human achievements and, as Edmund Burke said, ``Those who don't know history are destined to repeat it''. Besides that, technical knowledge isn't enough to educate someone for professional or social setting.
+Therefore the ``filosophical'' motivation of this project intends to create a simple interface that would provide a means to an easy access to information and could boost interest in learning.\\
 
-Younger population knows progressively less and less about history and human achievements. A simple interface would provide a means to an easy access to information and could boost interest in learning.\\
+In a technical way of speaking this is a really stimulating project considering that natural language processing is a subject where many expectations relies on, considering that everybody is always a little bit skeptical about how a computer can understand human language.
 
 \section{State of the art}
 
@@ -67,8 +69,10 @@ Text classification is a problem that aims to categorize documents or simple sen
 The Ruby programming language was used to build the whole application (back-end and web application). This language was chosen mainly because it's a modern language, with great support for string processing, date and time parsing and regular expressions. The fact that the language has a very large and active community and can be easily extended with modules called \textit{gems} further increases its flexibility and power.
 
 \subsection{Text Extraction}
+All the necessary data to build the application database was extracted from Wikipedia pages containing events by year.
+Some difficulties were faced in this process due to the lack of a suitable page structure like the nonexistence of appropriated containers for a list of events, the existence of standards for page construction (or the disrespect for the existing ones) and the inconsistency between lists of the same type in different pages were the mainly constraints that led to an greater number of code lines in order to cover some special cases, decreasing its legibility.\\
+To parse the HTML in the pages the ruby gem \verb!Nokogiri!. After getting the page source, the parser in adition with XPath queries was used to navigate throw the elements in the page and filter only the relevant information about an envent, meaning, the event itself and its date.
 
-The \verb!Nokogiri! ruby gem was used to parse the HTML from the Wikipedia pages. By using XPath
 
 \subsection{Text classification}
 \label{subsec:approach:text-classification}
