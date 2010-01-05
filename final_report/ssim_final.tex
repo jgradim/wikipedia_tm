@@ -60,7 +60,7 @@ Younger population knows progressively less and less about history and human ach
 
 Text mining is the process of extracting high quality, useful data from text. This can be accomplished through semantical and phrasal structure analysis. The Stanford Parser is a probabilist parser that aims to produce the \textit{most likely} analysis of new sentences; although this can sometimes lead to some errors, the overall result is very satisfactory, producing accurate trees for almost every parsed sentence(s).\\
 
-Text classification is a problem that aims to categorize documents or simple sentences in one or more categories, based on their contents. This can be achieved using either Support Vector Machines or a Naive Bayes classifier. Unlike Support Vector Machines, which produce a \textit{binary classification}, i.e. either the text is in a certain category or isn't, a Naive Bayes classifier allows for a number of arbitrary categories. A Naive Bayes classifier can be trained using a set of pre-classified sentences in a \textit{supervised learning} setting, yielding very satisfactory results when classifying unknown sentences (about 80\%-90\% of correct results, depending on the size and quality of the training set).
+Text classification is a problem that aims to categorize documents or simple sentences in one or more categories, based on their contents. This can be achieved using either Support Vector Machines or a naive Bayes classifier. Unlike Support Vector Machines, which produce a \textit{binary classification}, i.e. either the text is in a certain category or isn't, a naive Bayes classifier allows for a number of arbitrary categories. A naive Bayes classifier can be trained using a set of pre-classified sentences in a \textit{supervised learning} setting, yielding very satisfactory results when classifying unknown sentences (about 80\%-90\% of correct results, depending on the size and quality of the training set).
 
 \section{Approach}
 
@@ -72,6 +72,8 @@ The \verb!Nokogiri! ruby gem was used to parse the HTML from the Wikipedia pages
 
 \subsection{Text classification}
 \label{subsec:approach:text-classification}
+
+In order to classify the many events extracted, a ruby implementation naive Bayes classifier was used.\\
 
 A training set was built using random events selected from the wikipedia pages from 1950 to 2005. 50 examples were used for each of the seven categories, totaling 350 examples:
 
@@ -89,7 +91,9 @@ The \verb!classifier! ruby gem was used.
 
 \subsection{Natural Language Processing}
 
-A parse tree containing the phrasal structure of a sentence can be obtained by using the \verb!LexicalizedParser! class present in the Stanford Parser. This tree can be used to derive (if present) either the location of the event and the people involved. Sections \ref{subsec:approach:people-extraction} and \ref{subsec:approach:local-extraction} show the tree structures used for the extraction of such informations.\cite{santorini}\cite{bies}
+A parse tree containing the phrasal structure of a sentence can be obtained by using the \verb!LexicalizedParser! class present in the Stanford Parser. This tree can be used to derive (if present) either the location of the event and the people involved. Through the graphical analysis of various parse trees derived from a series of events, some patterns emerged that allowed an easy extraction of useful information. Sections \ref{subsec:approach:people-extraction} and \ref{subsec:approach:local-extraction} show the tree structures used for the extraction of such informations.\cite{santorini}\cite{bies}\\
+
+The extraction was performed by traversing the parse tree and analying the order of the nodes. For exampl, a tree like Fig. \ref{fig:location-extraction} (a), when traversed, produces these nodes, in order: \verb!PP, IN, NP, NPP!. The anaysis of this order allows to determine if a section of the sentence refers to a location or a person or people.
 
 \subsection{People Extraction}
 \label{subsec:approach:people-extraction}
@@ -101,9 +105,9 @@ A parse tree containing the phrasal structure of a sentence can be obtained by u
 	\label{fig:people-extraction}
 \end{figure}
 
-Fig. \ref{fig:people-extraction} shows the sub-tree relating to singular proper nouns (NNP) nodes, from where people involved in the event can be extracted. As the phrasal structure does not allow for easy extraction of this information (this structure alone can not infer if the proper nouns refer to a country or a name or even a brand), only when an NP (noun phrase) node has at least two contiguous NNP child nodes is a name extracted.
+Fig. \ref{fig:people-extraction} shows the sub-tree relating to singular proper nouns (NNP) nodes, from where people involved in the event can be extracted. As the phrasal structure does not allow for easy extraction of this information (this structure alone can not infer if the proper nouns refer to a country or a name or even a brand), a sentence is only considered to refer to a person or people only when an NP (noun phrase) node has at least two contiguous NNP child nodes.
 
-\subsection{Local extraction}
+\subsection{Location extraction}
 \label{subsec:approach:local-extraction}
 
 \begin{figure}[h]
@@ -115,17 +119,43 @@ Fig. \ref{fig:people-extraction} shows the sub-tree relating to singular proper 
 	\label{fig:location-extraction}
 \end{figure}
 
-Fig. \ref{fig:location-extraction} shows the sub-trees used for extraction the location of the parsed event. A location almost always occurs inside a PP (prepositional phrase) node, and the structure of the descendant nodes determines if it refers to a location, be it a city, a country (Fig. \ref{fig:location-extraction} (a)), or a \textit{complex} location, like a city followed by its country (Fig. \ref{fig:location-extraction} (b)).
+Fig. \ref{fig:location-extraction} shows the sub-trees used for extraction the location of the parsed event. A location almost always occurs inside a PP (prepositional phrase) node, and the structure of the descendant nodes determines if it refers to a location, be it a city, a country (Fig. \ref{fig:location-extraction} (a)), or a \textit{complex} location, like a city followed by its country (Fig. \ref{fig:location-extraction} (b)). Although only two main parse tree patterns are presented, the complete list of node sequences used to extract a location is presented in Fig. \ref{fig:nodes-order}.
+
+\begin{figure}[h]
+	\centering
+	\begin{tabular}{p{4cm}}
+		\begin{verbatim}
+		PP - IN - NP - NNP
+		PP - TO - NP - NNP
+		PP - IN - NP - NP - NNP
+		PP - IN - NP - DT - NNPS
+		PP - TO - NP - NP - NNP
+		PP - IN - NP - DT - NNP
+		\end{verbatim}
+	\end{tabular}
+	\caption{Order of nodes used to recognize locations in sentences}
+	\label{fig:nodes-order}
+\end{figure}
 
 \section{Results}
 
 \subsection{Text classification}
 
-Using the Naive Bayes classifier implementation by Lucas Carlson and David Fayram II\cite{classifier} it was possible to classify the extracted events in the seven categories referred in section \ref{subsec:approach:text-classification}.
+Using the naive Bayes classifier implementation by Lucas Carlson and David Fayram II\cite{classifier} it was possible to classify the extracted events in the seven categories referred in section \ref{subsec:approach:text-classification}.
+
+\begin{figure}[h]
+	\centering
+	\begin{tabular}{c|c|c}
+		& Location Extraction & People Extraction\\
+		\hline
+		Accuracy & VALUE\% & VALUE\% \\
+	\end{tabular}
+	\caption{Accuracy of events classification using a naive Bayes classification}
+	\label{fig:classifier-accuracy}
+\end{figure}
 
 \subsection{Information extraction}
 
-%
 \section{Main implementation problems}
 
 Wikipedia is an open knowledge base, relying mainly on user generated content. As such, it's difficult to ensure a proper and constant textual structure for information. Although the pages for the most recent centuries (approx. 18th century) have a well defined an constant HTML structure that allows for reliable information retrieval, there are many years that don't follow this structure, leading to specific parsing cases.\\
