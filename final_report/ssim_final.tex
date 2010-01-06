@@ -35,14 +35,15 @@ Rua do Dr. Roberto Frias, s/n, Porto, Portugal}
 \maketitle              % typeset the title of the contribution
 
 \begin{abstract}
-This paper documents the implementation of the World's most significant events, organized by year. As such, these can be searched using a web interface considering events' nature (politics, economy, war, accident, culture and crime), actors, and location. Bayesian Networks for events classification and Stanford Parser for semantical analysis.
+This paper documents the implementation of system that catalogs the World's most significant events, extracting people involved, location and classifying them in 7 distinct categories. As such, these can be searched using a web interface considering the events' nature (politics, economy, war, accident, culture and crime), people involved, and location. Bayesian Networks are used for events classification and the Stanford Parser for semantical analysis.
 \end{abstract}
 
 \section{Introduction}
 \subsection{Problem}
-Information is available but isn't easily searchable. It requires manual searching through entire articles to find a specific piece of information and you can't apply any kind of filter so you can have more specific and according to your needs search results. Also tables and lists are getting deprecated as the only mean of presenting information, they began to be more and more only an auxiliar to more intuitive, graphical and versatile ways of showing information. In what concerns to get data processed so it can be shown in such ways we can assume that language processing can work as an ally to furthure refine data so it can became richer and therfore be used in more effecient way.\\
 
-In this particular case, information about World's history will be gathered (only from wikipedia at this stage) and the nature, autors and location of the events will be parsed using some natural language processing techniques, namely Bayesian Networks and Stanford Parser, in order to provide easier and more human readable information.\\
+Information on Wikipedia is readily available but isn't easily searchable. It requires manual searching through entire articles to find a specific piece of information and you can't apply any kind of filter so you can have search results more specific and according to your needs. Also, tables and lists are becoming deprecated as the only means of presenting information: they begin to be more and more only an auxiliary to more intuitive, graphical and versatile ways of showing information. In what concerns to get data processed so it can be shown in such ways, it can be can assumed that natural language processing (NLP) can work as an ally to further refine data so it becomes richer and therefore be used in more efficient way.\\
+
+In this particular case, information about World's history will be gathered (only from Wikipedia at this stage): these events will be classified using a naive Bayes classifier and the, people involved and location of the events will be parsed using natural language processing techniques, with help from the Stanford Parser, in order to provide easier and more human readable information.\\
 
 \subsection{Objectives}
 
@@ -54,8 +55,8 @@ In this particular case, information about World's history will be gathered (onl
 \end{itemize}
 
 \subsection{Motivation}
-Each year an large amount of great events take place in our world. A new page of history is written and we all must be aware of it, in order to better understand the mankind. Unfortunnatly younger population knows progressively less and less about history and human achievements and, as Edmund Burke said, ``Those who don't know history are destined to repeat it''. Besides that, technical knowledge isn't enough to educate someone for professional or social setting.
-Therefore the ``filosophical'' motivation of this project intends to create a simple interface that would provide a means to an easy access to information and could boost interest in learning.\\
+Each year an large amount of great events take place in our world. A new page of history is written and we all must be aware of it, in order to better understand the mankind. Unfortunately younger population knows progressively less and less about history and human achievements and, as Edmund Burke said, ``Those who don't know history are destined to repeat it''. Besides that, technical knowledge isn't enough to educate someone for professional or social setting.
+Therefore the ``philosophical'' motivation of this project intends to create a simple interface that would provide a means to an easy access to information and could boost interest in learning.\\
 
 In a technical way of speaking this is a really stimulating project considering that natural language processing is a subject where many expectations relies on, considering that everybody is always a little bit skeptical about how a computer can understand human language.
 
@@ -81,7 +82,7 @@ To parse the HTML in the pages the ruby gem \verb!Nokogiri!. After getting the p
 
 In order to classify the many events extracted, a Ruby implementation of a naive Bayes classifier\cite{classifier} was used. The objective was to train the classifier in 7 categories (show below) in order to categorize the extracted events (based on a series of keywords particular to that category) to allow for easy searching and filtering.\\
 
-A training set was built using random events selected from the wikipedia pages from 1950 to 2005. 50 examples were used for each of the seven categories, totaling 350 examples:
+A training set was built using random events selected from the Wikipedia pages from 1950 to 2005. 50 examples were used for each of the seven categories, totaling 350 examples:
 
 \begin{itemize}
 	\item \textit{Accidents}: Natural disasters and human accidents, like train wrecks and plane crashes
@@ -103,7 +104,7 @@ The extraction was performed by traversing the parse tree and analying the order
 \subsection{People Extraction}
 \label{subsec:approach:people-extraction}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=40mm]{dia/people.eps}
 	\caption{People extraction tree pattern}
@@ -115,7 +116,7 @@ Fig.\ref{fig:people-extraction} shows the sub-tree relating to singular proper n
 \subsection{Location extraction}
 \label{subsec:approach:location-extraction}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\subfloat[Location extraction tree pattern 1]{\label{fig:local_1}\includegraphics[width=0.3\textwidth]{dia/local_1.eps}}     
 	\hspace{20mm}
@@ -126,7 +127,7 @@ Fig.\ref{fig:people-extraction} shows the sub-tree relating to singular proper n
 
 Fig.\ref{fig:location-extraction} shows the sub-trees used for extraction the location of the parsed event. A location almost always occurs inside a PP (prepositional phrase) node, and the structure of the descendant nodes determines if it refers to a location, be it a city, a country (Fig.\ref{fig:location-extraction} (a)), or a \textit{complex} location, like a city followed by its country (Fig.\ref{fig:location-extraction} (b)). Although only two main parse tree patterns are presented, the complete list of node sequences used to extract a location is presented in Fig.\ref{fig:nodes-order}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\begin{tabular}{p{4cm}}
 		\begin{verbatim}
@@ -148,7 +149,7 @@ Fig.\ref{fig:location-extraction} shows the sub-trees used for extraction the lo
 
 Using the naive Bayes classifier implementation by Lucas Carlson and David Fayram II\cite{classifier} it was possible to classify the extracted events in the seven categories referred in section \ref{subsec:approach:text-classification}. The accuracy of this classification is shown on Fig.\ref{fig:classifier-accuracy}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 
 	\centering
 	\begin{tabular}{|c|c|c|}
@@ -185,14 +186,14 @@ From a total of 145 events, 103 were classified correctly, which yields an accur
 
 The techniques described in sections \ref{subsec:approach:nlp}, \ref{subsec:approach:people-extraction}, \ref{subsec:approach:location-extraction} allow the extraction of features from sentences. The accuracy of these techniques is shown in Fig.\ref{fig:classifier-accuracy}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\begin{tabular}{c|c|c}
 		& Location Extraction & People Extraction\\
 		\hline
 		Accuracy & VALUE\% & VALUE\% \\
 	\end{tabular}
-	\caption{Accuray of feature extraction using natural language processing}
+	\caption{Accuracy of feature extraction using natural language processing}
 	\label{fig:classifier-accuracy}
 \end{figure}
 
