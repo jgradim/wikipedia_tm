@@ -146,9 +146,37 @@ Fig.\ref{fig:location-extraction} shows the sub-trees used for extraction the lo
 Using the naive Bayes classifier implementation by Lucas Carlson and David Fayram II\cite{classifier} it was possible to classify the extracted events in the seven categories referred in section \ref{subsec:approach:text-classification}. The accuracy of this classification is shown on Fig.\ref{fig:classifier-accuracy}.
 
 \begin{figure}[h]
-	\caption{Accuracy of events classification using a naive Bayes classification}
+
+	\centering
+	\begin{tabular}{|c|c|c|}
+	\hline
+	          & \textbf{correctly classified as} & \textbf{incorrectly classified as} \\
+	\hline
+	\hline
+	\textbf{Accidents} & 19 & 4 \\
+	\hline
+	\textbf{Crime}     & 14 & 5 \\
+	\hline
+	\textbf{Cultural}  & 12 & 2 \\
+	\hline
+	\textbf{Economy}   & 5 & 16 \\
+	\hline
+	\textbf{Politics}  & 29 & 1 \\
+	\hline
+	\textbf{Science}   & 12 & 7 \\
+	\hline
+	\textbf{War}       & 10 & 7 \\
+	\hline
+	\hline
+	\textbf{Total}     & 103 & 42 \\
+	\hline
+	\end{tabular}
+
+	\caption{Accuracy of events classification using a naive Bayes classifier}
 	\label{fig:classifier-accuracy}
 \end{figure}
+
+From a total of 145 events, 103 were classified correctly, which yields an accuracy of 71\%. However, some of the events are difficult even for humans to classify, bringing the expected classification accuracy to be between 75\%-80\%. It must be noted that there's a very fine line between economic and political events, which is why economy is probably the least accurate category.
 
 \subsection{Information extraction}
 
