@@ -11,7 +11,7 @@ task :get_events do
 	wikipedia_extractor = WikipediaExtractor.new
 	wp_classifier = WPClassifier.new
 	
-	(1985..1995).each do |year|
+	(1996..2009).each do |year|
 	
 		t = Time.now
 		puts "Processing events from #{year}... "
