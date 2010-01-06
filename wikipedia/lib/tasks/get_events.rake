@@ -11,7 +11,7 @@ task :get_events do
 	wikipedia_extractor = WikipediaExtractor.new
 	wp_classifier = WPClassifier.new
 	
-	(1900..1900).each do |year|
+	(1981..1981).each do |year|
 	
 		t = Time.now
 		print "Processing events from #{year}... "
@@ -32,11 +32,11 @@ task :get_events do
 			end
 			
 			# classify event
-			type = wp_classifier.classify(event[:description])
+			category = wp_classifier.classify(event[:description])
 			
 			# update event with new info
 			event.merge!({
-				:type => type,
+				:category => category,
 				:location => location,
 				:lat => lat,
 				:lng => lng,
