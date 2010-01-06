@@ -1,7 +1,7 @@
 <div id="left">
 	<div>
 		<% form_tag search_events_path do -%>
-			
+			<%= hidden_field_tag :year %>
 			<p>
 				<%= label_tag :keywords %>
 				<%= text_field_tag :keywords -%>
@@ -21,7 +21,12 @@
 				<%= check_box_tag :war %>
 				<%= label_tag :war %>
 			</p>
+			<p>
+				<%= submit_tag "Get events" %>
+			</p>
 		<% end -%>
+		<div id="events">
+		</div>
 	</div>
 </div>
 
