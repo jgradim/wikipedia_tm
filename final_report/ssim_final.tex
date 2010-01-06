@@ -43,7 +43,7 @@ This paper documents the implementation of system that catalogs the World's most
 
 Information on Wikipedia is readily available but isn't easily searchable. It requires manual searching through entire articles to find a specific piece of information and you can't apply any kind of filter so you can have search results more specific and according to your needs. Also, tables and lists are becoming deprecated as the only means of presenting information: they begin to be more and more only an auxiliary to more intuitive, graphical and versatile ways of showing information. In what concerns to get data processed so it can be shown in such ways, it can be can assumed that natural language processing (NLP) can work as an ally to further refine data so it becomes richer and therefore be used in more efficient way.\\
 
-In this particular case, information about World's history will be gathered (only from Wikipedia at this stage): these events will be classified using a naive Bayes classifier and the, people involved and location of the events will be parsed using natural language processing techniques, with help from the Stanford Parser, in order to provide easier and more human readable information.\\
+In this particular case, information about World's history will be gathered (only from Wikipedia at this stage): these events will be classified using a naive Bayes classifier and the, people involved and location of the events will be parsed using natural language processing techniques, with help from the Stanford Parser\cite{sp}, in order to provide easier and more human readable information.\\
 
 \subsection{Objectives}
 
@@ -65,7 +65,7 @@ In a technical way of speaking this is a really stimulating project considering 
 
 Text mining is the process of extracting high quality, useful data from text. This can be accomplished through semantical and phrasal structure analysis. The Stanford Parser is a probabilist parser that aims to produce the \textit{most likely} analysis of new sentences; although this can sometimes lead to some errors, the overall result is very satisfactory, producing accurate trees for almost every parsed sentence(s).\\
 
-Text classification is a problem that aims to categorize documents or simple sentences in one or more categories, based on their contents. This can be achieved using either Support Vector Machines or a naive Bayes classifier. Unlike Support Vector Machines, which produce a \textit{binary classification}, i.e. either the text is in a certain category or isn't, a naive Bayes classifier allows for a number of arbitrary categories. A naive Bayes classifier can be trained using a set of pre-classified sentences in a \textit{supervised learning} setting, yielding very satisfactory results when classifying unknown sentences (about 80\%-90\% of correct results, depending on the size and quality of the training set).
+Text classification is a problem that aims to categorize documents or simple sentences in one or more categories, based on their contents. This can be achieved using either Support Vector Machines or a naive Bayes classifier. Unlike Support Vector Machines, which produce a \textit{binary classification}, i.e. either the text is in a certain category or isn't, a naive Bayes classifier allows for a number of arbitrary categories. A naive Bayes classifier can be trained using a set of pre-classified sentences in a \textit{supervised learning} setting, yielding very satisfactory results when classifying unknown sentences (about 80\%-90\% of correct results, depending on the size and quality of the training set).\cite{russel}
 
 \section{Approach}
 \label{sec:approach}
@@ -172,11 +172,11 @@ Using the naive Bayes classifier implementation by Lucas Carlson and David Fayra
 	\label{fig:classifier-accuracy}
 \end{figure}
 
-From a total of 145 events, 103 were classified correctly, which yields an accuracy of 71\%. However, some of the events are difficult even for humans to classify, bringing the expected classification accuracy to be between 75\%-80\%. It must be noted that there's a very fine line between economic and political events, which may lead to some bias towards the political side in the training set.
+From a total of 145 events, 103 were classified correctly, which yields an accuracy of 71\%. However, some of the events are difficult even for humans to classify, bringing the expected classification accuracy of a larger test set to be between 75\%-80\%. It must be noted that there's a very fine line between economic and political events, which may lead to some bias towards the political side in the training set.
 
 \subsection{Information extraction}
 
-The techniques described in sections \ref{subsec:approach:nlp}, \ref{subsec:approach:people-extraction}, \ref{subsec:approach:location-extraction} allow the extraction of features from sentences. The accuracy of these techniques is shown in Fig. \ref{fig:classifier-accuracy}.
+The techniques described in sections \ref{subsec:approach:nlp}, \ref{subsec:approach:people-extraction}, \ref{subsec:approach:location-extraction} allow the extraction of features from sentences. The accuracy of these techniques is shown in Fig. \ref{fig:feature-extraction-accuracy}.
 
 \begin{figure}[h!]
 	\centering
@@ -189,7 +189,7 @@ The techniques described in sections \ref{subsec:approach:nlp}, \ref{subsec:appr
 		\textbf{Accuracy}  & 66\% & 72\% \\ 
 	\end{tabular}
 	\caption{Accuracy of feature extraction using natural language processing}
-	\label{fig:classifier-accuracy}
+	\label{fig:feature-extraction-accuracy}
 \end{figure}
 
 This evaluation was performed with these criteria:
@@ -228,6 +228,16 @@ Penn Treebank Project
 Carlson, L., Fayram II, D.
 http://classifier.rubyforge.org/
 (September 2005)
+
+\bibitem[4]{sp}
+Stanford University
+http://nlp.stanford.edu/software/lex-parser.shtml
+(July 2009)
+
+\bibitem[5]{russel}
+Artificial Intelligence: A Modern Approach (2nd Edition)
+Russel, S., Norvig, P.
+(2003)
 
 \end{thebibliography}
 
