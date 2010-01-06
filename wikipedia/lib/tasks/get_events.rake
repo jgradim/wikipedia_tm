@@ -11,10 +11,10 @@ task :get_events do
 	wikipedia_extractor = WikipediaExtractor.new
 	wp_classifier = WPClassifier.new
 	
-	(1981..1981).each do |year|
+	(1985..1995).each do |year|
 	
 		t = Time.now
-		print "Processing events from #{year}... "
+		puts "Processing events from #{year}... "
 	
 		events = wikipedia_extractor.get_events(year)
 		
@@ -24,7 +24,7 @@ task :get_events do
 			tree = parser.apply(event[:description])
 			tree_analyzer = TreeAnalyzer.new(tree)
 			
-			people = tree_analyzer.get_people.join(',')
+			people = tree_analyzer.get_people.join(',') rescue nil
 			location = tree_analyzer.find_location
 			lat, lng = nil, nil
 			if location
