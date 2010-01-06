@@ -55,10 +55,11 @@ In this particular case, information about World's history will be gathered (onl
 \end{itemize}
 
 \subsection{Motivation}
-Each year an large amount of great events take place in our world. A new page of history is written and we all must be aware of it, in order to better understand the mankind. Unfortunately younger population knows progressively less and less about history and human achievements and, as Edmund Burke said, ``Those who don't know history are destined to repeat it''. Besides that, technical knowledge isn't enough to educate someone for professional or social setting.
-Therefore the ``philosophical'' motivation of this project intends to create a simple interface that would provide a means to an easy access to information and could boost interest in learning.\\
 
-In a technical way of speaking this is a really stimulating project considering that natural language processing is a subject where many expectations relies on, considering that everybody is always a little bit skeptical about how a computer can understand human language.
+Each year an large amount of great events take place in our world. A new page of history is written and we all must be aware of it, in order to better understand the mankind. Unfortunately younger population knows progressively less and less about history and human achievements and, as English philosopher Edmund Burke (1729-1797) said, \textit{``Those who don't know history are destined to repeat it''}. Besides that, technical knowledge isn't enough to educate someone for professional or social setting.
+Therefore the ``philosophical'' motivation of this project is to create a simple interface that would provide a means to an easy access to information and could boost interest in learning.\\
+
+In a technical way of speaking this is a really stimulating project considering that natural language processing is a subject where many expectations relies on, due to the fact that it's an area that aims to bridge the gap between human and computer communication.
 
 \section{State of the art}
 
@@ -72,9 +73,12 @@ Text classification is a problem that aims to categorize documents or simple sen
 The Ruby programming language was used to build the whole application (back-end and web application). This language was chosen mainly because it's a modern language, with great support for string processing, date and time parsing and regular expressions. The fact that the language has a very large and active community and can be easily extended with modules called \textit{gems} further increases its flexibility and power.
 
 \subsection{Text Extraction}
-All the necessary data to build the application database was extracted from Wikipedia pages containing events by year.
+
+All the necessary data to build the application database was extracted from Wikipedia ``year pages'' containing the main events for a particular year (e.g. \verb!http://en.wikipedia.org/wiki/1980!).\\
+
 Some difficulties were faced in this process due to the lack of a suitable page structure like the nonexistence of appropriated containers for a list of events, the existence of standards for page construction (or the disrespect for the existing ones) and the inconsistency between lists of the same type in different pages were the mainly constraints that led to an greater number of code lines in order to cover some special cases, decreasing its legibility.\\
-To parse the HTML in the pages the ruby gem \verb!Nokogiri!. After getting the page source, the parser in adition with XPath queries was used to navigate throw the elements in the page and filter only the relevant information about an envent, meaning, the event itself and its date.
+
+To parse the HTML in the pages the ruby gem \verb!Nokogiri!. After getting the page source, the parser in addition with XPath queries was used to navigate throw the elements in the page and filter only the relevant information about an event, meaning, the event itself and its date.
 
 
 \subsection{Text classification}
@@ -99,19 +103,19 @@ A training set was built using random events selected from the Wikipedia pages f
 
 A parse tree containing the phrasal structure of a sentence can be obtained by using the \verb!LexicalizedParser! class present in the Stanford Parser. This tree can be used to derive (if present) either the location of the event and the people involved. Through the graphical analysis of various parse trees derived from a series of events, some patterns emerged that allowed an easy extraction of useful information. Sections \ref{subsec:approach:people-extraction} and \ref{subsec:approach:location-extraction} show the tree structures used for the extraction of such informations.\cite{santorini}\cite{bies}\\
 
-The extraction was performed by traversing the parse tree and analying the order of the nodes. For exampl, a tree like Fig.\ref{fig:location-extraction} (a), when traversed, produces these nodes, in order: \verb!PP, IN, NP, NPP!. The anaysis of this order allows to determine if a section of the sentence refers to a location or a person or people.
+The extraction was performed by traversing the parse tree and analyzing the order of the nodes. For example, a tree like Fig. \ref{fig:location-extraction} (a), when traversed, produces these nodes, in order: \verb!PP, IN, NP, NPP!. The analysis of this order allows to determine if a section of the sentence refers to a location or a person or people.
 
 \subsection{People Extraction}
 \label{subsec:approach:people-extraction}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=40mm]{dia/people.eps}
+	\includegraphics[width=50mm]{dia/people.eps}
 	\caption{People extraction tree pattern}
 	\label{fig:people-extraction}
 \end{figure}
 
-Fig.\ref{fig:people-extraction} shows the sub-tree relating to singular proper nouns (NNP) nodes, from where people involved in the event can be extracted. As the phrasal structure does not allow for easy extraction of this information (this structure alone can not infer if the proper nouns refer to a country or a name or even a brand), a sentence is only considered to refer to a person or people only when an NP (noun phrase) node has at least two contiguous NNP child nodes.
+Fig. \ref{fig:people-extraction} shows the sub-tree relating to singular proper nouns (NNP) nodes, from where people involved in the event can be extracted. As the phrasal structure does not allow for easy extraction of this information (this structure alone can not infer if the proper nouns refer to a country or a name or even a brand), a sentence is only considered to refer to a person or people only when an NP (noun phrase) node has at least two contiguous NNP child nodes.
 
 \subsection{Location extraction}
 \label{subsec:approach:location-extraction}
@@ -125,7 +129,7 @@ Fig.\ref{fig:people-extraction} shows the sub-tree relating to singular proper n
 	\label{fig:location-extraction}
 \end{figure}
 
-Fig.\ref{fig:location-extraction} shows the sub-trees used for extraction the location of the parsed event. A location almost always occurs inside a PP (prepositional phrase) node, and the structure of the descendant nodes determines if it refers to a location, be it a city, a country (Fig.\ref{fig:location-extraction} (a)), or a \textit{complex} location, like a city followed by its country (Fig.\ref{fig:location-extraction} (b)). Although only two main parse tree patterns are presented, the complete list of node sequences used to extract a location is presented in Fig.\ref{fig:nodes-order}.
+Fig. \ref{fig:location-extraction} shows the sub-trees used for extraction the location of the parsed event. A location almost always occurs inside a PP (prepositional phrase) node, and the structure of the descendant nodes determines if it refers to a location, be it a city, a country (Fig. \ref{fig:location-extraction} (a)), or a \textit{complex} location, like a city followed by its country (Fig. \ref{fig:location-extraction} (b)). Although only two main parse tree patterns are presented, the complete list of node sequences used to extract a location is presented in Fig. \ref{fig:nodes-order}.
 
 \begin{figure}[h!]
 	\centering
@@ -147,55 +151,55 @@ Fig.\ref{fig:location-extraction} shows the sub-trees used for extraction the lo
 
 \subsection{Text classification}
 
-Using the naive Bayes classifier implementation by Lucas Carlson and David Fayram II\cite{classifier} it was possible to classify the extracted events in the seven categories referred in section \ref{subsec:approach:text-classification}. The accuracy of this classification is shown on Fig.\ref{fig:classifier-accuracy}.
-
-\begin{figure}[h!]
-
-	\centering
-	\begin{tabular}{|c|c|c|}
-	\hline
-	          & \textbf{correctly classified as} & \textbf{incorrectly classified as} \\
-	\hline
-	\hline
-	\textbf{Accidents} & 19 & 4 \\
-	\hline
-	\textbf{Crime}     & 14 & 5 \\
-	\hline
-	\textbf{Cultural}  & 12 & 2 \\
-	\hline
-	\textbf{Economy}   & 5 & 16 \\
-	\hline
-	\textbf{Politics}  & 29 & 1 \\
-	\hline
-	\textbf{Science}   & 12 & 7 \\
-	\hline
-	\textbf{War}       & 10 & 7 \\
-	\hline
-	\hline
-	\textbf{Total}     & 103 & 42 \\
-	\hline
-	\end{tabular}
-
-	\caption{Accuracy of events classification using a naive Bayes classifier}
-	\label{fig:classifier-accuracy}
-\end{figure}
-
-From a total of 145 events, 103 were classified correctly, which yields an accuracy of 71\%. However, some of the events are difficult even for humans to classify, bringing the expected classification accuracy to be between 75\%-80\%. It must be noted that there's a very fine line between economic and political events, which is why economy is probably the least accurate category.
-
-\subsection{Information extraction}
-
-The techniques described in sections \ref{subsec:approach:nlp}, \ref{subsec:approach:people-extraction}, \ref{subsec:approach:location-extraction} allow the extraction of features from sentences. The accuracy of these techniques is shown in Fig.\ref{fig:classifier-accuracy}.
+Using the naive Bayes classifier implementation by Lucas Carlson and David Fayram II\cite{classifier} it was possible to classify the extracted events in the seven categories referred in section \ref{subsec:approach:text-classification}. The accuracy of this classification is shown on Fig. \ref{fig:classifier-accuracy}.
 
 \begin{figure}[h!]
 	\centering
 	\begin{tabular}{c|c|c}
-		& Location Extraction & People Extraction\\
+	 & \textbf{correctly classified as} & \textbf{incorrectly classified as} \\
+	\hline
+	\textbf{Accidents} & 19 & 4 \\
+	\textbf{Crime}     & 14 & 5 \\
+	\textbf{Cultural}  & 12 & 2 \\
+	\textbf{Economy}   & 5 & 16 \\
+	\textbf{Politics}  & 29 & 1 \\
+	\textbf{Science}   & 12 & 7 \\
+	\textbf{War}       & 10 & 7 \\
+	\hline
+	\textbf{Total}     & 103 & 42 \\
+	\end{tabular}
+	\caption{Accuracy of events classification using a naive Bayes classifier}
+	\label{fig:classifier-accuracy}
+\end{figure}
+
+From a total of 145 events, 103 were classified correctly, which yields an accuracy of 71\%. However, some of the events are difficult even for humans to classify, bringing the expected classification accuracy to be between 75\%-80\%. It must be noted that there's a very fine line between economic and political events, which may lead to some bias towards the political side in the training set.
+
+\subsection{Information extraction}
+
+The techniques described in sections \ref{subsec:approach:nlp}, \ref{subsec:approach:people-extraction}, \ref{subsec:approach:location-extraction} allow the extraction of features from sentences. The accuracy of these techniques is shown in Fig. \ref{fig:classifier-accuracy}.
+
+\begin{figure}[h!]
+	\centering
+	\begin{tabular}{c|c|c}
+		& \textbf{Location Extraction} & \textbf{People Extraction} \\
 		\hline
-		Accuracy & VALUE\% & VALUE\% \\
+		\textbf{Correct}   & 96 & 105 \\
+		\textbf{Incorrect} & 49 & 40 \\
+		\hline
+		\textbf{Accuracy}  & 66\% & 72\% \\ 
 	\end{tabular}
 	\caption{Accuracy of feature extraction using natural language processing}
 	\label{fig:classifier-accuracy}
 \end{figure}
+
+This evaluation was performed with these criteria:
+
+\begin{itemize}
+	\item If an event does not contain any people and no people are detected, it's considered a successful extraction
+	\item If an event does not refer to a location and no location is found, it's construed a successful extraction
+	\item If more than one ``person'' is detected and one of them is a person to whom the event refers (even if the other people are not human, but stadiums or countries with more than 2 proper nouns), it's considered a successful extraction\footnote{A collective person, e.g. ``Israeli Air Force'' is considered to be correct if extracted} \footnote{An animal baptized with a name is also considered as ``people'', in regards to what is considered a successful extraction}
+	\item All other cases result in an unsuccessful extraction
+\end{itemize}
 
 \section{Main implementation problems}
 
