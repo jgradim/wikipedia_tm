@@ -23,7 +23,11 @@ class TreeAnalyzer
 				break
 			end
 		end
-		location.scan(/([\w,]+)(?=\))/).join(" ").gsub(/^in |^from |^of |^to |^at |^the /i, '').gsub(' ,', ',')
+		begin
+			location.scan(/([\w,]+)(?=\))/).join(" ").gsub(/^in |^from |^of |^to |^at |^the /i, '').gsub(' ,', ',')
+		rescue
+			nil
+		end
 	end
 
 	## 
@@ -50,7 +54,11 @@ class TreeAnalyzer
 				# now we have a structure like this to extract names:
 				# n    : [[0,3], [4,2]]
 				# names: ["George", "W.", "Bush", "and", "Al", "Gore"]
-				people << n.inject([]){ |acum,obj| acum << names.slice(obj.first, obj.last).join(" ") }
+				begin
+					people << n.inject([]){ |acum,obj| acum << names.slice(obj.first, obj.last).join(" ") }
+				rescue
+					true
+				end
 			end
 		end
 		people.flatten
