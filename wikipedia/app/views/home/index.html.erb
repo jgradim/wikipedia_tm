@@ -1,0 +1,33 @@
+<div id="left">
+	<div>
+		<% form_tag search_events_path do -%>
+			
+			<p>
+				<%= label_tag :keywords %>
+				<%= text_field_tag :keywords -%>
+			</p>
+				<%= check_box_tag :accidents %>
+				<%= label_tag :accidents %>
+				<%= check_box_tag :crime %>
+				<%= label_tag :crime %>
+				<%= check_box_tag :cultural %>
+				<%= label_tag :cultural %>
+				<%= check_box_tag :economy %>
+				<%= label_tag :economy %>
+				<%= check_box_tag :politics %>
+				<%= label_tag :politics %>
+				<%= check_box_tag :science %>
+				<%= label_tag :science %>
+				<%= check_box_tag :war %>
+				<%= label_tag :war %>
+			</p>
+		<% end -%>
+	</div>
+</div>
+
+<div id="right">
+	<div>
+		<div id="slider"></div>
+		<div id="map"></div>
+	</div>
+</div>

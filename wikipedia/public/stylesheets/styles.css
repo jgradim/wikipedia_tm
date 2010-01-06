@@ -1,0 +1,31 @@
+html { height: 100%; }
+body {
+	height: 100%;
+	color: #666;
+	font: normal normal normal 14px/16px Arial,Helvetica,sans-serif;
+}
+
+div#left {
+	width: 25%;
+	background: #f2f2f2 url(../images/left-bg2.png) repeat-y top right;	
+}
+div#right { width: 75%; }
+div#left, div#right {
+	height: 100%;
+	float: left;
+}
+div#right > div { height: 90%; }
+div#left > div,
+div#right > div {
+	margin: 20px;
+}
+
+/* */
+div#slider {
+	height: 10%;
+}
+div#map {
+	width: 100%;
+	height: 90%;
+}
+input { width: 100%; }
