@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 	## GET
 	def search
 		categories = params[:categories] || []
-		@events = Event.find(:all, :conditions => [ "category IN (?) AND description LIKE ? AND YEAR(date) = ?", categories, "#{params[:keywords]}%", params[:year]])
+		@events = Event.find(:all, :conditions => [ "category IN (?) AND description LIKE ? AND YEAR(date) = ?", categories, "%#{params[:keywords]}%", params[:year]])
 		@newest_year = Event.newest_year
 		@oldest_year = Event.oldest_year
 		@year = params[:year]
