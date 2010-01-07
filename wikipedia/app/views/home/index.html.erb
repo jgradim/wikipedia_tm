@@ -9,23 +9,25 @@
 			<p>
 				<%= label_tag :keywords %>
 				<%= text_field_tag :keywords, params[:keywords] %>
+				<%= label_tag :people, 'People Involved' %>
+				<%= text_field_tag :people, params[:people] %>
 			</p>
 			<p>
-				<%= check_box_tag 'categories[]', 'Accidents', @accidents %>
+				<%= check_box_tag 'categories[]', 'Accidents', @accidents, :id => 'Accidents' %>
 				<%= label_tag 'Accidents' %>
-				<%= check_box_tag 'categories[]', 'Crime', @crime %>
+				<%= check_box_tag 'categories[]', 'Crime', @crime, :id => 'Crime' %>
 				<%= label_tag 'Crime' %>
-				<%= check_box_tag 'categories[]', 'Cultural', @crime %>
+				<%= check_box_tag 'categories[]', 'Cultural', @cultural, :id => 'Cultural' %>
 				<%= label_tag 'Cultural' %>
-				<%= check_box_tag 'categories[]', 'Economy', @economy %>
+				<%= check_box_tag 'categories[]', 'Economy', @economy, :id => 'Economy' %>
 				<%= label_tag 'Economy' %>
 			</p>
 			<p>
-				<%= check_box_tag 'categories[]', 'Politics', @politics %>
+				<%= check_box_tag 'categories[]', 'Politics', @politics, :id => 'Politics' %>
 				<%= label_tag 'Politics' %>
-				<%= check_box_tag 'categories[]', 'Science', @science %>
+				<%= check_box_tag 'categories[]', 'Science', @science, :id => 'Science' %>
 				<%= label_tag 'Science' %>
-				<%= check_box_tag 'categories[]', 'War', @war %>
+				<%= check_box_tag 'categories[]', 'War', @war, :id => 'War' %>
 				<%= label_tag 'War' %>
 			</p>
 			<p>
