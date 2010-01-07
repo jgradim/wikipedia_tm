@@ -5,38 +5,50 @@ body {
 	font: normal normal normal 12px/16px Arial,Helvetica,sans-serif;
 }
 
+
 div#left {
 	width: 25%;
-	background: #f2f2f2 url(../images/left-bg2.png) repeat-y top right;	
+	background: #f2f2f2 url(../images/left-bg2.png) repeat-y top right;
 }
 div#right { width: 75%; }
 div#left, div#right {
 	height: 100%;
 	float: left;
 }
+div#left > div,
 div#right > div { height: 90%; }
 div#left > div,
 div#right > div {
 	margin: 20px;
 }
 
+ul li { margin-bottom: 20px; }
+ul span { display: block; }
+ul span.date { font-weight: bold; margin-bottom: 5px; }
+ul span.desc { text-indent: 20px; }
+
 /* */
 div#slider {
 	height: 10%;
+}
+div#slider p {
+	text-align: center;
+	line-height: 40px;
+	font-size: 14pt;
+	font-weight: bold;
 }
 div#map {
 	width: 100%;
 	height: 90%;
 }
 
-div#left form { height: 10%; }
+div#left form { height: 25%; }
 div#left div#events {
-	height: 80%;
-	margin-top: 20px;
+	height: 75%;
 	padding: 5px;
 	border: 1px solid #ddd;
 	background: #eee;
 	overflow: auto;
 }
 
-input { width: 100%; }
+input[type='text'] { width: 100%; }

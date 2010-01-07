@@ -16,7 +16,10 @@ $(document).ready(function(){
 			max: parseInt($('input#newest_year').val()),
 			value: parseInt($('input#year').val()),
 			step: 1,
-			stop: function(ev, ui){
+			slide: function(ev, ui) {
+				$("div#slider p").text(ui.value);
+			},
+			stop: function(ev, ui) {
 				$("input#year").val(ui.value);
 				$.ajax({
 					url: '/events/search.js',
