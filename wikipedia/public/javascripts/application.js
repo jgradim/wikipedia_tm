@@ -12,6 +12,10 @@ $(document).ready(function(){
 		
 		//
 		$('div#handle').slider({
+			min: parseInt($('input#oldest_year').val()),
+			max: parseInt($('input#newest_year').val()),
+			value: parseInt($('input#newest_year').val()),
+			step: 1,
 			stop: function(ev, ui){
 				$("input#year").val(ui.value);
 				$.ajax({
@@ -20,6 +24,8 @@ $(document).ready(function(){
 					data:	$('form').serialize(),
 					success: function(html) {
 						$("div#events").html(html);
+						map.clearOverlays();
+						createMarkers(map);
 					}
 				});
 			}

@@ -1,25 +1,32 @@
 <div id="left">
 	<div>
-		<% form_tag search_events_path do -%>
-			<%= hidden_field_tag :year %>
+		<% form_tag search_events_path, :method => :get do -%>
+			<p>
+				<%= hidden_field_tag :oldest_year, @oldest_year %>
+				<%= hidden_field_tag :newest_year, @newest_year %>
+				<%= hidden_field_tag :year %>
+			</p>
 			<p>
 				<%= label_tag :keywords %>
 				<%= text_field_tag :keywords -%>
 			</p>
-				<%= check_box_tag 'categories[Accidents]' %>
-				<%= label_tag :accidents %>
-				<%= check_box_tag 'categories[Crime]' %>
-				<%= label_tag :crime %>
-				<%= check_box_tag 'categories[Cultural]' %>
-				<%= label_tag :cultural %>
-				<%= check_box_tag 'categories[Economy]' %>
-				<%= label_tag :economy %>
-				<%= check_box_tag 'categories[Politics]' %>
-				<%= label_tag :politics %>
-				<%= check_box_tag 'categories[Science]' %>
-				<%= label_tag :science %>
-				<%= check_box_tag 'categories[War]' %>
-				<%= label_tag :war %>
+			<p>
+				<%= check_box_tag 'categories[]', 'Accidents' %>
+				<%= label_tag 'Accidents' %>
+				<%= check_box_tag 'categories[]', 'Crime' %>
+				<%= label_tag 'Crime' %>
+				<%= check_box_tag 'categories[]', 'Cultural' %>
+				<%= label_tag 'Cultural' %>
+				<%= check_box_tag 'categories[]', 'Economy' %>
+				<%= label_tag 'Economy' %>
+			</p>
+			<p>
+				<%= check_box_tag 'categories[]', 'Politics' %>
+				<%= label_tag 'Politics' %>
+				<%= check_box_tag 'categories[]', 'Science' %>
+				<%= label_tag 'Science' %>
+				<%= check_box_tag 'categories[]', 'War' %>
+				<%= label_tag 'War' %>
 			</p>
 			<p>
 				<%= submit_tag "Get events" %>
