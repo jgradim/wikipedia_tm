@@ -4,10 +4,11 @@ class EventsController < ApplicationController
 	def search
 		categories = params[:categories].map{ |k,v| k } || []
 		
-		@events = Event.find(:all, :conditions => { :category => categories })
+		@events = Event.find(:all, :conditions => [ "category IN (?) AND description LIKE ?", categories, params[:keywords] + '%'])
+
 		
 		respond_to do |format|
-		 format.html { render 'home/index' }
+		 format.html { render :template => 'home/index' }
 		end
 	end
 end
