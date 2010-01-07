@@ -4,28 +4,28 @@
 			<p>
 				<%= hidden_field_tag :oldest_year, @oldest_year %>
 				<%= hidden_field_tag :newest_year, @newest_year %>
-				<%= hidden_field_tag :year %>
+				<%= hidden_field_tag :year, @year %>
 			</p>
 			<p>
 				<%= label_tag :keywords %>
-				<%= text_field_tag :keywords -%>
+				<%= text_field_tag :keywords, params[:keywords] %>
 			</p>
 			<p>
-				<%= check_box_tag 'categories[]', 'Accidents' %>
+				<%= check_box_tag 'categories[]', 'Accidents', @accidents %>
 				<%= label_tag 'Accidents' %>
-				<%= check_box_tag 'categories[]', 'Crime' %>
+				<%= check_box_tag 'categories[]', 'Crime', @crime %>
 				<%= label_tag 'Crime' %>
-				<%= check_box_tag 'categories[]', 'Cultural' %>
+				<%= check_box_tag 'categories[]', 'Cultural', @crime %>
 				<%= label_tag 'Cultural' %>
-				<%= check_box_tag 'categories[]', 'Economy' %>
+				<%= check_box_tag 'categories[]', 'Economy', @economy %>
 				<%= label_tag 'Economy' %>
 			</p>
 			<p>
-				<%= check_box_tag 'categories[]', 'Politics' %>
+				<%= check_box_tag 'categories[]', 'Politics', @politics %>
 				<%= label_tag 'Politics' %>
-				<%= check_box_tag 'categories[]', 'Science' %>
+				<%= check_box_tag 'categories[]', 'Science', @science %>
 				<%= label_tag 'Science' %>
-				<%= check_box_tag 'categories[]', 'War' %>
+				<%= check_box_tag 'categories[]', 'War', @war %>
 				<%= label_tag 'War' %>
 			</p>
 			<p>
