@@ -5,7 +5,7 @@ development:
   database: wikipedia_development
   pool: 5
   username: root
-  password: root
+  password: 
 
 test:
   adapter: mysql
