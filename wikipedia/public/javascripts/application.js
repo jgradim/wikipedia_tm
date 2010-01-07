@@ -15,7 +15,7 @@ $(document).ready(function(){
 			stop: function(ev, ui){
 				$("input#year").val(ui.value);
 				$.ajax({
-					url: '/events/search',
+					url: '/events/search.js',
 					type: 'GET',
 					data:	$('form').serialize(),
 					success: function(html) {
