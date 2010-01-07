@@ -1,0 +1,10 @@
+<ul>
+	<% @events.each do |e| %>
+	<li>
+		<span class="date"><%= e.date %></span>
+		<span class="desc"><%= e.description %></span>	
+		<%= hidden_field_tag "lat#{e.id}", e.lat, :class => 'lat' %>
+		<%= hidden_field_tag "lng#{e.id}", e.lng, :class => 'lng' %>
+	</li>
+	<% end -%>
+</ul>
