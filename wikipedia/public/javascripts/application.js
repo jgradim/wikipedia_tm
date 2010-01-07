@@ -1,7 +1,6 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function(){
-	$('div#handle').slider({});
 	
 	var map;
 	if (GBrowserIsCompatible()) {
@@ -10,6 +9,22 @@ $(document).ready(function(){
 		map.addControl(new GLargeMapControl3D());
 		
 		createMarkers(map);
+		
+		//
+		$('div#handle').slider({
+			stop: function(ev, ui){
+				$("input#year").val(ui.value);
+				$.ajax({
+					url: '/events/search',
+					type: 'GET',
+					data:	$('form').serialize(),
+					success: function(html) {
+						$("div#events").html(html);
+					}
+				});
+			}
+		});
+		
 	}
 });
 
