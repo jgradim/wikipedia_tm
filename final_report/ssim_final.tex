@@ -35,13 +35,13 @@ Rua do Dr. Roberto Frias, s/n, Porto, Portugal}
 \maketitle              % typeset the title of the contribution
 
 \begin{abstract}
-This paper documents the implementation of system that catalogs the World's most significant events, extracting people involved, location and classifying them in 7 distinct categories. As such, these can be searched using a web interface considering the events' nature (politics, economy, war, accident, culture and crime), people involved, and location. Bayesian Networks are used for events classification and the Stanford Parser for semantical analysis.
+This paper documents the implementation of a system that processes the World's most significant events, extracting people involved, location and classifying them in 7 distinct categories. As such, these can be searched using a web interface considering the events' nature (politics, economy, war, accident, culture and crime), people involved, and location. Bayesian Networks are used for events classification and the Stanford Parser for semantical analysis.
 \end{abstract}
 
 \section{Introduction}
 \subsection{Problem}
 
-Information on Wikipedia is readily available but isn't easily searchable. It requires manual searching through entire articles to find a specific piece of information and you can't apply any kind of filter so you can have search results more specific and according to your needs. Also, tables and lists are becoming deprecated as the only means of presenting information: they begin to be more and more only an auxiliary to more intuitive, graphical and versatile ways of showing information. In what concerns to get data processed so it can be shown in such ways, it can be can assumed that natural language processing (NLP) can work as an ally to further refine data so it becomes richer and therefore be used in more efficient way.\\
+Information on Wikipedia is readily available but is not easily searchable. It requires manual searching through entire articles to find a specific piece of information and you cannot apply any kind of filter so you can have search results more specific and according to your needs. Also, tables and lists are becoming deprecated as the only means of presenting information: they begin to be more and more only an auxiliary to more intuitive, graphical and versatile ways of showing information. In what concerns to get data processed so it can be shown in such ways, it can be can assumed that natural language processing (NLP) can work as an ally to further refine data so it becomes richer and therefore be used in more efficient way.\\
 
 In this particular case, information about World's history will be gathered (only from Wikipedia at this stage): these events will be classified using a naive Bayes classifier and the people involved and location of the events will be parsed using natural language processing techniques, with help from the Stanford Parser\cite{sp}, in order to provide easier and more human readable information.\\
 
@@ -56,10 +56,10 @@ In this particular case, information about World's history will be gathered (onl
 
 \subsection{Motivation}
 
-Each year an large amount of great events take place in our world. A new page of history is written and we all must be aware of it, in order to better understand the mankind. Unfortunately younger population knows progressively less and less about history and human achievements and, as English philosopher Edmund Burke (1729-1797) said, \textit{``Those who don't know history are destined to repeat it''}. Besides that, technical knowledge isn't enough to educate someone for professional or social setting.
-Therefore the ``philosophical'' motivation of this project is to create a simple interface that would provide a means to an easy access to information and could boost interest in learning.\\
+Each year an large amount of great events take place in our world. A new page of history is written and we all must be aware of it, in order to better understand mankind. Unfortunately younger population knows progressively less and less about history and human achievements and, as English philosopher Edmund Burke (1729-1797) said, \textit{``Those who don't know history are destined to repeat it''}. Besides that, technical knowledge is not enough to educate someone for a professional or social setting.
+Therefore, the ``philosophical'' motivation of this project is to create a simple interface that would provide a means to an easy access to information and could boost interest in learning.\\
 
-In a technical way of speaking this is a really stimulating project considering that natural language processing is a subject where many expectations relies on, due to the fact that it's an area that aims to bridge the gap between human and computer communication.
+In a technical way of speaking this is a really stimulating project considering that natural language processing is a subject where many expectations relies on, due to the fact that it is an area that aims to bridge the gap between human and computer communication.
 
 \section{State of the art}
 
