@@ -81,9 +81,11 @@ To parse the HTML in the pages the ruby gem \verb!Nokogiri!. After getting the p
 \subsection{Text classification}
 \label{subsec:approach:text-classification}
 
-Text classification is a problem that aims to categorize documents or simple sentences in one or more categories, based on their contents. This can be achieved using either Support Vector Machines or a naive Bayes classifier. Unlike Support Vector Machines, which produce a \textit{binary classification}, i.e. either the text is in a certain category or is not, a naive Bayes classifier allows for a number of arbitrary categories. A naive Bayes classifier can be trained using a set of pre-classified sentences in a \textit{supervised learning} setting, yielding very satisfactory results when classifying unknown sentences (about 80\%-90\% of correct results, depending on the size and quality of the training set).\cite{russel}
+Text classification is a problem that aims to categorize documents or simple sentences in one or more categories, based on their contents. This can be achieved using either Support Vector Machines or a naive Bayes classifier. Unlike Support Vector Machines, which produce a \textit{binary classification}, i.e. either the text is in a certain category or is not, a naive Bayes classifier allows for a number of arbitrary categories. A naive Bayes classifier can be trained using a set of pre-classified sentences in a \textit{supervised learning} setting, yielding very satisfactory results when classifying unknown sentences (about 80\%-90\% of correct results, depending on the size and quality of the training set).\cite{russel}\\
 
-In order to classify the many events extracted, a Ruby implementation of a naive Bayes classifier\cite{classifier} was used. The objective was to train the classifier in 7 categories (show below) in order to categorize the extracted events (based on a series of keywords particular to that category) to allow for easy searching and filtering.\\
+EXPLICAR O NAIVE BAYES\\
+
+In order to classify the many events extracted, a Ruby implementation of a naive Bayes classifier\cite{classifier} was used. The objective was to train the classifier in 7 categories (shown below) in order to categorize the extracted events (based on a series of keywords particular to that category) to allow for easy searching and filtering. The classifier implementation used tokenizes the given sentences by whitespace, effectivelly using each word (unigram) of the sentence, stemmed to its root (when possible) as the classification features.\\
 
 A training set was built using random events selected from the Wikipedia pages from 1950 to 2005. 50 examples were used for each of the seven categories, totaling 350 examples:
 
