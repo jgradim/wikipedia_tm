@@ -11,6 +11,7 @@
 \usepackage{indentfirst}
 \usepackage{graphicx}
 \usepackage{subfig}
+
 %
 \begin{document}
 
@@ -63,16 +64,12 @@ In a technical way of speaking this is a really stimulating project considering 
 
 \section{State of the art}
 
-Text mining is the process of extracting high quality, useful data from text. This can be accomplished through semantical and phrasal structure analysis. The Stanford Parser is a probabilist parser that aims to produce the \textit{most likely} analysis of new sentences; although this can sometimes lead to some errors, the overall result is very satisfactory, producing accurate trees for almost every parsed sentence(s).\\
-
-Text classification is a problem that aims to categorize documents or simple sentences in one or more categories, based on their contents. This can be achieved using either Support Vector Machines or a naive Bayes classifier. Unlike Support Vector Machines, which produce a \textit{binary classification}, i.e. either the text is in a certain category or isn't, a naive Bayes classifier allows for a number of arbitrary categories. A naive Bayes classifier can be trained using a set of pre-classified sentences in a \textit{supervised learning} setting, yielding very satisfactory results when classifying unknown sentences (about 80\%-90\% of correct results, depending on the size and quality of the training set).\cite{russel}
-
 \section{Approach}
 \label{sec:approach}
 
 The Ruby programming language was used to build the whole application (back-end and web application). This language was chosen mainly because it's a modern language, with great support for string processing, date and time parsing and regular expressions. The fact that the language has a very large and active community and can be easily extended with modules called \textit{gems} further increases its flexibility and power.
 
-\subsection{Text Extraction}
+\subsection{Pre-Processing}
 
 All the necessary data to build the application database was extracted from Wikipedia ``year pages'' containing the main events for a particular year (e.g. \verb!http://en.wikipedia.org/wiki/1980!).\\
 
@@ -83,6 +80,8 @@ To parse the HTML in the pages the ruby gem \verb!Nokogiri!. After getting the p
 
 \subsection{Text classification}
 \label{subsec:approach:text-classification}
+
+Text classification is a problem that aims to categorize documents or simple sentences in one or more categories, based on their contents. This can be achieved using either Support Vector Machines or a naive Bayes classifier. Unlike Support Vector Machines, which produce a \textit{binary classification}, i.e. either the text is in a certain category or isn't, a naive Bayes classifier allows for a number of arbitrary categories. A naive Bayes classifier can be trained using a set of pre-classified sentences in a \textit{supervised learning} setting, yielding very satisfactory results when classifying unknown sentences (about 80\%-90\% of correct results, depending on the size and quality of the training set).\cite{russel}
 
 In order to classify the many events extracted, a Ruby implementation of a naive Bayes classifier\cite{classifier} was used. The objective was to train the classifier in 7 categories (show below) in order to categorize the extracted events (based on a series of keywords particular to that category) to allow for easy searching and filtering.\\
 
@@ -101,12 +100,14 @@ A training set was built using random events selected from the Wikipedia pages f
 \subsection{Natural Language Processing}
 \label{subsec:approach:nlp}
 
-A parse tree containing the phrasal structure of a sentence can be obtained by using the \verb!LexicalizedParser! class present in the Stanford Parser. This tree can be used to derive (if present) either the location of the event and the people involved. Through the graphical analysis of various parse trees derived from a series of events, some patterns emerged that allowed an easy extraction of useful information. Sections \ref{subsec:approach:people-extraction} and \ref{subsec:approach:location-extraction} show the tree structures used for the extraction of such informations.\cite{santorini}\cite{bies}\\
+Text mining is the process of extracting high quality, useful data from text. This can be accomplished through semantical and phrasal structure analysis. The Stanford Parser is a probabilist parser that aims to produce the \textit{most likely} analysis of new sentences; although this can sometimes lead to some errors, the overall result is very satisfactory, producing accurate trees for almost every parsed sentence(s).\\
+
+A parse tree containing the phrasal structure of a sentence can be obtained by using the \verb!LexicalizedParser! class present in the Stanford Parser. This tree can be used to derive (if present) either the location of the event and the people involved. Through the graphical analysis of various parse trees derived from a series of events, some patterns emerged that allowed an easy extraction of useful information. Sections \ref{subsec:approach:entities-extraction} and \ref{subsec:approach:location-extraction} show the tree structures used for the extraction of such informations.\cite{santorini}\cite{bies}\\
 
 The extraction was performed by traversing the parse tree and analyzing the order of the nodes. For example, a tree like Fig. \ref{fig:location-extraction} (a), when traversed, produces these nodes, in order: \verb!PP, IN, NP, NPP!. The analysis of this order allows to determine if a section of the sentence refers to a location or a person or people.
 
-\subsection{People Extraction}
-\label{subsec:approach:people-extraction}
+\subsection{Entities Extraction}
+\label{subsec:approach:entities-extraction}
 
 \begin{figure}[h!]
 	\centering
@@ -179,7 +180,7 @@ From a total of 145 events, 103 were classified correctly, which yields an accur
 
 \subsection{Information extraction}
 
-The techniques described in sections \ref{subsec:approach:nlp}, \ref{subsec:approach:people-extraction}, \ref{subsec:approach:location-extraction} allow the extraction of features from sentences. The accuracy of these techniques is shown in Fig. \ref{fig:feature-extraction-accuracy}.
+The techniques described in sections \ref{subsec:approach:nlp}, \ref{subsec:approach:entities-extraction}, \ref{subsec:approach:location-extraction} allow the extraction of features from sentences. The accuracy of these techniques is shown in Fig. \ref{fig:feature-extraction-accuracy}.
 
 \begin{figure}[h!]
 	\centering
