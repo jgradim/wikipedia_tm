@@ -67,7 +67,7 @@ In a technical way of speaking this is a really stimulating project considering 
 \section{Approach}
 \label{sec:approach}
 
-The Ruby programming language was used to build the whole application (back-end and web application). This language was chosen mainly because it's a modern language, with great support for string processing, date and time parsing and regular expressions. The fact that the language has a very large and active community and can be easily extended with modules called \textit{gems} further increases its flexibility and power.
+The Ruby programming language was used to build the whole application (back-end and web application). This language was chosen mainly because it is a modern language, with great support for string processing, date and time parsing and regular expressions. The fact that the language has a very large and active community and can be easily extended with modules called \textit{gems} further increases its flexibility and power.
 
 \subsection{Pre-Processing}
 
@@ -81,7 +81,7 @@ To parse the HTML in the pages the ruby gem \verb!Nokogiri!. After getting the p
 \subsection{Text classification}
 \label{subsec:approach:text-classification}
 
-Text classification is a problem that aims to categorize documents or simple sentences in one or more categories, based on their contents. This can be achieved using either Support Vector Machines or a naive Bayes classifier. Unlike Support Vector Machines, which produce a \textit{binary classification}, i.e. either the text is in a certain category or isn't, a naive Bayes classifier allows for a number of arbitrary categories. A naive Bayes classifier can be trained using a set of pre-classified sentences in a \textit{supervised learning} setting, yielding very satisfactory results when classifying unknown sentences (about 80\%-90\% of correct results, depending on the size and quality of the training set).\cite{russel}
+Text classification is a problem that aims to categorize documents or simple sentences in one or more categories, based on their contents. This can be achieved using either Support Vector Machines or a naive Bayes classifier. Unlike Support Vector Machines, which produce a \textit{binary classification}, i.e. either the text is in a certain category or is not, a naive Bayes classifier allows for a number of arbitrary categories. A naive Bayes classifier can be trained using a set of pre-classified sentences in a \textit{supervised learning} setting, yielding very satisfactory results when classifying unknown sentences (about 80\%-90\% of correct results, depending on the size and quality of the training set).\cite{russel}
 
 In order to classify the many events extracted, a Ruby implementation of a naive Bayes classifier\cite{classifier} was used. The objective was to train the classifier in 7 categories (show below) in order to categorize the extracted events (based on a series of keywords particular to that category) to allow for easy searching and filtering.\\
 
@@ -176,7 +176,7 @@ Using the naive Bayes classifier implementation by Lucas Carlson and David Fayra
 	\label{fig:classifier-accuracy}
 \end{figure}
 
-From a total of 145 events, 103 were classified correctly, which yields an accuracy of 71\%. However, some of the events are difficult even for humans to classify, bringing the expected classification accuracy of a larger test set to be between 75\%-80\%. It must be noted that there's a very fine line between economic and political events, which may lead to some bias towards the political side in the training set.
+From a total of 145 events, 103 were classified correctly, which yields an accuracy of 71\%. However, some of the events are difficult even for humans to classify, bringing the expected classification accuracy of a larger test set to be between 75\%-80\%. It must be noted that there is a very fine line between economic and political events, which may lead to some bias towards the political side in the training set.
 
 \subsection{Information extraction}
 
@@ -199,9 +199,9 @@ The techniques described in sections \ref{subsec:approach:nlp}, \ref{subsec:appr
 This evaluation was performed with these criteria:
 
 \begin{itemize}
-	\item If an event does not contain any people and no people are detected, it's considered a successful extraction
-	\item If an event does not refer to a location and no location is found, it's construed a successful extraction
-	\item If more than one ``person'' is detected and one of them is a person to whom the event refers (even if the other people are not human, but stadiums or countries with more than 2 proper nouns), it's considered a successful extraction\footnote{A collective person, e.g. ``Israeli Air Force'' is considered to be correct if extracted} \footnote{An animal baptized with a name is also considered as ``people'', in regards to what is considered a successful extraction}
+	\item If an event does not contain any people and no people are detected, it is considered a successful extraction
+	\item If an event does not refer to a location and no location is found, it is construed a successful extraction
+	\item If more than one ``person'' is detected and one of them is a person to whom the event refers (even if the other people are not human, but stadiums or countries with more than 2 proper nouns), it is considered a successful extraction\footnote{A collective person, e.g. ``Israeli Air Force'' is considered to be correct if extracted} \footnote{An animal baptized with a name is also considered as ``people'', in regards to what is considered a successful extraction}
 	\item All other cases result in an unsuccessful extraction
 \end{itemize}
 
@@ -211,7 +211,7 @@ The main objectives of the text mining applied in this project were fulfilled. T
 
 \subsection{Main implementation problems}
 
-Wikipedia is an open knowledge base, relying mainly on user generated content. As such, it's difficult to ensure a proper and constant textual structure for information. Although the pages for the most recent centuries (approx. 18th century) have a well defined an constant HTML structure that allows for reliable information retrieval, there are many years that don't follow this structure, leading to specific parsing cases.\\
+Wikipedia is an open knowledge base, relying mainly on user generated content. As such, it is difficult to ensure a proper and constant textual structure for information. Although the pages for the most recent centuries (approx. 18th century) have a well defined an constant HTML structure that allows for reliable information retrieval, there are many years that do not follow this structure, leading to specific parsing cases.\\
 
 This openness lead to another problem: an HTML structure not suited for easy parsing. A series of workarounds had to be implemented to successfully extract useful information.
 
