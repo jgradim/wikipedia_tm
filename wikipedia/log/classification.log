@@ -1,0 +1,534 @@
+
+
+Creating subsets #1...
+Training subset #1...
+Testing classification of subset 1...
+
+	Accidents test:
+		classified as 'Accidents': In Poland, a plane crashes during an emergency landing near Warsaw, killing a 14-man American boxing team and 73 others.
+		classified as 'Accidents': A fire at the MGM Grand Hotel and Casino on the Las Vegas Strip kills 85 people.
+		classified as 'Crime': Avalanches in the Alps kill 240 and bury 45,000 for a time in Switzerland, Austria and Italy.
+		classified as 'Accidents': A severe and destructive thunderstorm strikes 4 counties in western Wisconsin, including the city of Eau Claire. It causes over $250m in damage, and 1 person is killed.
+		classified as 'Accidents': A Pennsylvania Railroad passenger train derails near Woodbridge Township, New Jersey, killing 85 people and injuring over 500, in one of the worst rail disasters in American history.
+
+	Crime test:
+		classified as 'Politics': Andrei Sakharov, Soviet scientist and human rights activist, is arrested in Moscow.
+		classified as 'Politics': Former Turkish Prime Minister Nihat Erim is killed by 2 gunmen in Istanbul, Turkey.
+		classified as 'Politics': Prime Minister Liaquat Ali Khan of Pakistan is assassinated.
+		classified as 'Crime': Mobster Henry Hill is arrested for drug possession.
+		classified as 'Crime': An 18-year-old sailor is fined for kissing in public. The court calls his actions "obnoxious behavior repulsive to the public morals."
+
+	Cultural test:
+		classified as 'Politics': Super Bowl XIV: The Pittsburgh Steelers become the first NFL franchise to win 4 Super Bowls, defeating the Los Angeles Rams 31–19 at the Rose Bowl in Pasadena, California.
+		classified as 'Politics': The 1980 Summer Olympics are held in Moscow, Soviet Union.
+		classified as 'Science': The Brooklyn-Battery Tunnel is formally opened to traffic.
+		classified as 'Cultural': Star Wars Episode V: The Empire Strikes Back is released.
+		classified as 'Cultural': The Linnanmäki amusement park opens in Finland.
+
+	Economy test:
+		classified as 'Accidents': The London Gold Fixing hits its highest price ever (adjusted for inflation), at US$850 a troy ounce.
+		classified as 'Economy': The European Economic Community holds its first assembly in Strasbourg, France.
+		classified as 'Science': Toyota begins exporting vehicles to the U.S., beginning with the Toyota Crown and the Toyota Land Cruiser
+		classified as 'Economy': In the Hague Tribunal, Israel demands reparations worth $3 billion from Germany.
+		classified as 'Economy': Yugoslavia announces the end of an economic boycott of Franco's Spain (although it does not reinstitute diplomatic relations).
+
+	Politics test:
+		classified as 'Politics': U.S. President Jimmy Carter proclaims a grain embargo against the USSR with the support of the European Commission.
+		classified as 'War': Gwangju Massacre: Students in Gwangju, South Korea begin demonstrations, calling for democratic reforms.
+		classified as 'Politics': U.S. President Jimmy Carter defeats Senator Edward Kennedy to win renomination, at the 1980 Democratic National Convention in New York City.
+		classified as 'Politics': The United States severs diplomatic relations with Iran and imposes economic sanctions, following the taking of American hostages on November 4, 1979.
+		classified as 'Politics': Victory of the strike in Gdańsk Shipyard, Poland. Gdańsk Agreement is signed, opening a way to start the first in the communist block free organization not controlled by regime "Solidarność" ie. Solidarity.
+
+	Science test:
+		classified as 'Science': A total solar eclipse seen in North Africa and West Asia.
+		classified as 'Science': Microsoft releases Windows ME.
+		classified as 'Science': A lunar eclipse (umbral duration 236 min and total duration 106 min, the longest of the 20th century) occurs.
+		classified as 'War': Soyuz 9, a two man spacecraft, is launched in the Soviet Union.
+		classified as 'Cultural': A final soil sample is taken from the site of Times Beach, Missouri. It is found to contain 300 times the safe level of dioxin.
+
+	War test:
+		classified as 'Crime': Operation Eagle Claw, a commando mission in Iran to rescue American embassy hostages, is aborted after mechanical problems ground the rescue helicopters. Eight United States troops are killed in a mid-air collision during the failed operation.
+		classified as 'War': A U.S. Air Force B-50 Superfortress bomber, experiencing an in-flight emergency, jettisons and detonates a Mark 4 nuclear bomb over Quebec, Canada (the device lacked its plutonium core).
+		classified as 'Accidents': One West German soldier is killed in a shooting incident in West Berlin.
+		classified as 'War': Korean War: North Korean troops cross the 38th parallel into South Korea.
+		classified as 'War': In East Germany, the Soviet Union orders a division of troops into East Berlin to quell a rebellion.
+
+
+Creating subsets #2...
+Training subset #2...
+Testing classification of subset 2...
+
+	Accidents test:
+		classified as 'Accidents': Italy Earthquake of 1980: a magnitude 7 earthquake in southern Italy kills approximately 4,800 people and leaves 300,000 homeless.
+		classified as 'Accidents': The Norwegian oil platform Alexander Kielland collapses in the North Sea, killing 123 of its crew of 212.
+		classified as 'Crime': Pope John Paul II visits Brazil; 7 people are crushed to death in a crowd meeting him.
+		classified as 'Accidents': Mt. Etna erupts in Sicily.
+		classified as 'Politics': The 1980 United States heat wave claims 1,700 lives.
+
+	Crime test:
+		classified as 'Accidents': A terrorist bombing at the railway station in Bologna, Italy kills 85 people and wounds more than 200.
+		classified as 'Accidents': M-19 guerrillas begin the Dominican embassy siege in Colombia, holding 60 people hostage, including 14 ambassadors.
+		classified as 'Crime': A Miami, Florida court acquits 4 white police officers of killing Arthur McDuffie, a black insurance executive, provoking 3 days of race riots.
+		classified as 'Crime': King Abdullah I of Jordan is assassinated by a Palestinian while attending Friday prayers in Jerusalem.
+		classified as 'Crime': The Norco shootout takes place.
+
+	Cultural test:
+		classified as 'Cultural': The album Back in Black is released by the Australian band AC/DC.
+		classified as 'Politics': The United States Olympic Hockey Team defeats the Soviet Union in the semifinals of the Winter Olympics, in the Miracle on Ice.
+		classified as 'Cultural': Pac-Man (the best-selling arcade game of all time) is released.
+		classified as 'Cultural': The first race in the inaugural FIA Formula One World Championship is held at Silverstone, England.
+		classified as 'Cultural': Rosie Ruiz wins the Boston Marathon, but is later exposed as a fraud and stripped of her award.
+
+	Economy test:
+		classified as 'War': The IRS is formed.
+		classified as 'Economy': Ford Europe launches the Escort MK3, which ditches the traditional rear-wheel drive saloon in favour of a more practical and modern front-wheel drive hatchback.
+		classified as 'Economy': Japan joins IMF.
+		classified as 'Cultural': The San Francisco and Los Angeles stock exchanges merge to form the Pacific Coast Stock Exchange.
+		classified as 'Politics': The United Kingdom begins an economic boycott of Iran.
+
+	Politics test:
+		classified as 'War': 1980 Quebec referendum: Voters in Quebec reject by a vote of 60% a proposal to seek independence from Canada.
+		classified as 'War': In Vanuatu, followers of John Frum's cargo cult on the island of Tanna declare secession as the nation of Tafea.
+		classified as 'Economy': Spain and the United Kingdom agree to reopen the border between Gibraltar and Spain, closed since 1969.
+		classified as 'Cultural': Israel's Knesset passes the Jerusalem Law.
+		classified as 'Politics': The Mariel boatlift from Cuba begins.
+
+	Science test:
+		classified as 'Science': The last signal is received from NASA's Pioneer 10 spacecraft, some 7.5 billion miles from Earth.
+		classified as 'Science': November 12 – Voyager program: The NASA space probe Voyager I makes its closest approach to Saturn, when it flies within 77,000 miles of the planet's cloud-tops and sends the first high resolution images of the world back to scientists on Earth.
+		classified as 'Science': Luna 16 lands on the Moon and lifts off the next day with samples. It lands on Earth September 24.
+		classified as 'Science': A scramjet jet engine, Hyshot III, designed to fly at 7 times the speed of sound, is successfully tested at Woomera, South Australia.
+		classified as 'Science': NASA's Explorer 1, the first American satellite and Explorer program spacecraft, reenters Earth's atmosphere after 12 years in orbit.
+
+	War test:
+		classified as 'War': Korean War: Troops from the People's Republic of China move into North Korea and launch a massive counterattack against South Korean and American forces at Chosin, dashing any hopes for a quick end to the conflict.
+		classified as 'Science': Huk guerrillas manhandle the town of Hermosa, Bataan in the Philippines.
+		classified as 'War': Korean War: U.S. President Harry S. Truman orders American military forces to aid in the defense of South Korea.
+		classified as 'War': Negotiations for a ceasefire in Korea are postponed.
+		classified as 'War': The Soviet Union and the People's Republic of China sign a mutual defense treaty.
+
+
+Creating subsets #3...
+Training subset #3...
+Testing classification of subset 3...
+
+	Accidents test:
+		classified as 'Accidents': A fourth, and final, forest fire starts in the Tillamook Burn; but unlike earlier fires this one only burns 32,700 acres (132 km2), and within an area already affected by the earlier fires.
+		classified as 'Accidents': A Storm in southern Italy kills over 100.
+		classified as 'Accidents': A Curtiss Reid Flying Services plane crashes while enroute to Paris from Rome, killing all 52 on board.
+		classified as 'Science': In Australia, baby Azaria Chamberlain disappears from a campsite at Ayers Rock (Uluru), reportedly taken by a dingo.
+		classified as 'Accidents': The Opera house of Geneva, Switzerland is almost destroyed in a fire.
+
+	Crime test:
+		classified as 'Crime':  Four Puerto Rican nationalists open fire in the United States House of Representatives chamber and wound five; they are apprehended by security guards.
+		classified as 'Accidents': Rebels in Kenya kill the Ruck family (father, mother and six-year-old son).
+		classified as 'Crime': Colonel Carlos Delgado Chalbaud is kidnapped and murdered in Caracas.
+		classified as 'Crime': Vernon Jordan is shot and critically injured in an assassination attempt in Fort Wayne, Indiana by Joseph Paul Franklin (the first major news story for CNN).
+		classified as 'Crime': A show trial in Czechoslovakia sentences 11 ex-communist officials (all of them Jews) to death.
+
+	Cultural test:
+		classified as 'Science': Darlington Raceway is the site of the inaugural Southern 500, the first 500-mile NASCAR race.
+		classified as 'Cultural': Uruguay beat Brazil 2–1 to win the 1950 World Cup.
+		classified as 'Cultural': Walt Disney releases his 12th animated film, Cinderella in Hollywood.
+		classified as 'Cultural': Indianapolis 500: Johnny Rutherford wins for a third time in car owner Jim Hall's revolutionary ground effect Chaparral car; the victory is Hall's second as an owner.
+		classified as 'Economy': Annapurna I, 10th highest mountain in the world, is first ascended.
+
+	Economy test:
+		classified as 'Cultural': The Reserve Bank and Commonwealth Bank are created in Australia.
+		classified as 'Economy': The Japanese 10 yen coin ceases having serrated edges after a 5-year period beginning in 1953. All 10 yen coins since have smooth edges.
+		classified as 'Economy': The American Federation of Labor and the Congress of Industrial Organizations merge to become the AFL-CIO.
+		classified as 'Economy': Reparation negotiations between West Germany and Israel end in Luxembourg; Germany will pay 3 billion Deutsche Marks.
+		classified as 'Economy': The Consumers' Association is founded in the United Kingdom.
+
+	Politics test:
+		classified as 'Politics': The Fraser Government is re-elected for a third consecutive term in Australia with a reduced majority.
+		classified as 'War': Youth riots in the capital of the Soviet Republic of Estonia are quickly forced down.
+		classified as 'Politics': a wave of strikes begins in Lublin, Poland
+		classified as 'Politics': Zimbabwe gains independence from the United Kingdom; Robert Mugabe becomes Prime Minister.
+		classified as 'Politics': After weeks of strikes at the Lenin Shipyard in Gdańsk, Poland, the nationwide independent trade union Solidarity is established.
+
+	Science test:
+		classified as 'Science': The anticancer drug etoposide is approved by the FDA, leading to a curative treatment regime in the field of combination chemotherapy of testicular carcinoma.
+		classified as 'Science': Pioneer 10 becomes the first man-made object to leave the solar system.
+		classified as 'Science': Scientists announce that they have created mice with small amounts of human brain cells in an effort to make realistic models of neurological disorders.
+		classified as 'Science': Altair 8800 is released, sparking the era of the microcomputer.
+		classified as 'Science': Lotus 1-2-3 is released for IBM-PC compatible computers.
+
+	War test:
+		classified as 'War': The Soviet Union recognizes the sovereignty of East Germany but Soviet troops remain in the country.
+		classified as 'War': The Soviet Union ceases to demand war reparations from East Germany.
+		classified as 'War': The United States Army Special Forces is created.
+		classified as 'War': Winston Churchill supports idea of a pan-European army allied with Canada and the U.S.
+		classified as 'War': Operation Big Switch: Prisoners of war are repatriated after the Korean War.
+
+
+Creating subsets #4...
+Training subset #4...
+Testing classification of subset 4...
+
+	Accidents test:
+		classified as 'War': Fifty people are killed at the Plesetsk Cosmodrome in Russia, when a Vostok-2M rocket explodes on its launch pad during a fueling operation.
+		classified as 'Accidents': A series of deadly tornadoes strikes Grand Island, Nebraska, causing over $300m in damage, killing 5 people and injuring over 250.
+		classified as 'Accidents': A chartered C46 Curtis Commando crash lands in Cobourg, Ontario Canada; all on board survived.
+		classified as 'Accidents': The Maria Hertogh riots occur in Singapore, leaving 18 dead and 173 injured.
+
+	Crime test:
+		classified as 'War': The Spanish Embassy in Guatemala is invaded and set on fire, killing 36 people. It is called "Spain's own Tehran", similar to the 1979–80 Iran American U.S. Embassy Hostages of Americans.
+		classified as 'Crime': Paul Geidel, convicted of second-degree murder in 1911, is released from prison in Beacon, New York, after 68 years and 245 days (the longest-ever time served by an inmate).
+		classified as 'Crime': The U.S. executes Julius and Ethel Rosenberg for spying for the USSR
+		classified as 'Crime': Malayan Emergency: Communist insurgents kill British commander Sir Henry Gurney.
+
+	Cultural test:
+		classified as 'Science': The MS Athina B is beached at Brighton, becoming a temporary tourist attraction.
+		classified as 'Cultural': Iron Maiden's debut self titled album Iron Maiden is released.
+		classified as 'Cultural': The Immaculate Heart of Mary Seminary is founded in Tagbilaran City, Philippines.
+		classified as 'Science': The Huntsville Times runs the headline, "Dr. von Braun Says Rocket Flights Possible to Moon."
+
+	Economy test:
+		classified as 'Cultural': The Chicago, Rock Island and Pacific railroad is ordered liquidated due to bankruptcy, and debt owed to creditors.
+		classified as 'Cultural': During a summit on the island of Bali, OPEC decides to raise the price of petroleum by 10%.
+		classified as 'Economy': Import tariffs are lifted in the United Kingdom.
+		classified as 'Economy': U.S. President Dwight D. Eisenhower apologizes to the finance minister of Ghana, Komla Agbeli Gbdemah, after he is refused service in a Dover, Delaware restaurant.
+
+	Politics test:
+		classified as 'Economy': Israel and Egypt establish diplomatic relations.
+		classified as 'Politics': The Australia Olympic Committee announces it will send an Olympic delegation to Moscow, despite objections by Prime Minister Malcolm Fraser.
+		classified as 'Economy': James Callaghan announces his resignation as Leader of the British Labour Party.
+		classified as 'Politics': Lech Wałęsa leads the first of many strikes at the Gdańsk Shipyard.
+
+	Science test:
+		classified as 'Science': The Voyager 1 probe confirms the existence of Janus, a moon of Saturn.
+		classified as 'Science': The Concorde makes its first supersonic flight (700 mph 1,127 km/h).
+		classified as 'Science': Microsoft Word is first released.
+		classified as 'Economy': TGV high speed rail service between Paris and Lyon, France begins.
+
+	War test:
+		classified as 'Politics': John Frum supporters in Vanuatu storm government offices on the island of Tanna. Vanuatu government troops land the next day and drive them away.
+		classified as 'War': The U.S. Air Force loses a Convair B-36 bomber that carried an Mk-4 atomic bomb off the west coast of Canada, and produces the world's first Broken Arrow.
+		classified as 'War': In Vietnam, the Viet Minh capture the main airstrip of Dien Bien Phu. The remaining French Army units there are partially isolated.
+		classified as 'War': Indonesian troops led by General Nasution surround the presidential palace, seeking the dismissal of the People's Representative Council; Sukarno avoids confrontation.
+
+
+Creating subsets #5...
+Training subset #5...
+Testing classification of subset 5...
+
+	Accidents test:
+		classified as 'Economy': The ship Cygnet hits a mine off the Dutch coast.
+		classified as 'Science': A mine lift cage at the Vaal Reef gold mine in South Africa falls 1.2 miles, killing 23.
+		classified as 'Accidents': Mauna Loa stops erupting.
+		classified as 'Science': A tropical storm forms just north of Cuba moving northeast. The storm makes landfall in southern Florida the next day. It is the earliest reported landfall from a tropical storm, and the earliest formation of a tropical storm on record in the Atlantic basin.
+		classified as 'Accidents': Mount St. Helens erupts in Washington, killing 57 and causing US$3 billion in damage.
+
+	Crime test:
+		classified as 'Crime': The Gang of Four trial begins in China.
+		classified as 'Accidents': The New Mexico State Penitentiary Riot takes place; 33 inmates are killed and more than 100 inmates injured.
+		classified as 'Crime': Richard Chase, the "Vampire of Sacramento," kills himself by overdose on San Quentin prison death row.
+		classified as 'Crime': Muslim Brotherhood member Mahmoud Abdul Latif tries to kill Gamal Abdal Nasser.
+		classified as 'Science': Louise and Charmian Faulkner disappear from outside their flat in St Kilda, Victoria, Australia.
+
+	Cultural test:
+		classified as 'War': John Bonham of Led Zeppelin dies of alcohol poisoning.
+		classified as 'Cultural': On the night of February 19, AC/DC frontman Bon Scott died of pulmonary aspiration of vomit and acute alcohol poisoning. The band decided to carry on with replacement Brian Johnson and months later released their seventh studio album Back in Black. Back in Black is still the #1 selling AC/DC album of all time.
+		classified as 'Cultural': World Series: The Philadelphia Phillies beat the Kansas City Royals 4–2 in game 6.
+		classified as 'Cultural': World Dance Council inaugurated.
+		classified as 'Politics': Terry Fox begins his Marathon of Hope from St. Johns, Newfoundland, Canada.
+
+	Economy test:
+		classified as 'Economy': The first color television sets go on sale for about $1,175 (American dollars).
+		classified as 'Economy': Augusta AVA becomes the first federally recognized American Viticultural Area.
+		classified as 'War': After authorizing $385 million over the $400 million already budgeted for military aid to Vietnam, U.S. President Dwight Eisenhower warns against United States intervention in Vietnam.
+		classified as 'Economy': The United States Dollar is devalued by 10%.
+		classified as 'Politics': CERCLA is enacted by the U.S. Congress.
+
+	Politics test:
+		classified as 'Politics': U.S. Senator Ted Kennedy wins several primaries, including California, on 'Super Tuesday', but not enough to overtake President Jimmy Carter for the Democratic Party nomination.
+		classified as 'Politics': Ayatollah Ruhollah Khomeini names Abolhassan Banisadr as president of Iran.
+		classified as 'War': A Muslim Brotherhood assassination attempt against Syrian president Hafez al-Assad fails. Assad retaliates by sending the army against them.
+		classified as 'Politics': Six Provisional Irish Republican Army prisoners in Maze prison refuse food and demand status as political prisoners; the hunger strike lasts until December.
+		classified as 'Politics': U.S. President Jimmy Carter announces that the United States will boycott the 1980 Summer Olympics in Moscow.
+
+	Science test:
+		classified as 'Science': The Hubble Space Telescope starts Hubble Ultra Deep Field.
+		classified as 'Economy': Digital Equipment Corporation, Intel and Xerox introduce the DIX standard for Ethernet, which is the first implementation outside of Xerox, and the first to support 10 Mbit/s speeds.
+		classified as 'Science': The Huygens probe lands on Titan, the largest moon of Saturn.
+		classified as 'Science': University of California, Berkeley researchers announce the creation of element 98, which they have named californium.
+		classified as 'Science': Ōsumi, Japan's first satellite, is launched on a Lambda-4 rocket.
+
+	War test:
+		classified as 'War': Korean War: Chinese and North Korean forces capture Seoul.
+		classified as 'Politics': El Salvador and Honduras sign a peace treaty to put the border dispute fought over in 1969's Football War before the International Court of Justice.
+		classified as 'War': For the second time, United Nations troops recapture Seoul.
+		classified as 'War': A CIA-engineered military coup occurs in Guatemala.
+		classified as 'War': The U.S. Army begins to deploy anti-aircraft cannons to protect nuclear stations and military targets.
+
+
+Creating subsets #6...
+Training subset #6...
+Testing classification of subset 6...
+
+	Accidents test:
+		classified as 'Accidents': A sudden heavy snowfall hits Algeria.
+		classified as 'Accidents': In Yokohama, Japan a fire on a train kills more than 100.
+		classified as 'Accidents': A plane carrying returning rugby fans from Ireland to Wales crashes near Llandow, with the loss of 80 lives.
+		classified as 'Accidents': Anti-British riots erupt in Egypt.
+		classified as 'Crime': The Dominican embassy siege ends with all hostages released and the guerrillas flying to Cuba.
+
+	Crime test:
+		classified as 'Crime': The Brazilian president, Getulio Vargas, commits suicide after being accused of involvement in a conspiracy to murder a Brazilian Air Force officer.
+		classified as 'Crime': Konrad Adenauer survives an assassination attempt.
+		classified as 'Politics': James Hoskins forces his way into WCPO's television studio in Cincinnati, holding 9 employees hostage for several hours before releasing them and taking his own life.
+		classified as 'Crime': Ilse Koch, The "Witch of Buchenwald," wife of the commandant of the Buchenwald concentration camp, is sentenced to life imprisonment in a court in West Germany.
+		classified as 'Crime': Archbishop Óscar Romero is killed by gunmen while celebrating Mass in San Salvador. At his funeral 6 days later, 42 people are killed amid gunfire and bombs.
+
+	Cultural test:
+		classified as 'Cultural': The comic strip Beetle Bailey is created by Mort Walker.
+		classified as 'Accidents': St. Roch, the first ship to circumnavigate North America, arrives in Halifax, Nova Scotia.
+		classified as 'Cultural': The Robert Redford-directed film Ordinary People, based on the novel by Judith Guest, premieres. Redford's directorial debut later wins him his first Oscar, and wins three other Academy Awards, and five Golden Globe awards.
+		classified as 'Cultural': The 22nd Academy Awards ceremony is held.
+		classified as 'Accidents': The Georgia Guidestones are erected in Elbert County, Georgia.
+
+	Economy test:
+		classified as 'Economy': Eleven Labour Party councillors in Clay Cross, Derbyshire, England, are ordered to pay £6,985 for not enforcing the Housing Finance Act.
+		classified as 'Politics': In Indonesia, Sukarno announces the nationalization of 246 Dutch businesses.
+		classified as 'Cultural': Hugh Hefner publishes the first issue of Playboy Magazine; it sells 54,175 copies at $.50 each.
+		classified as 'Economy': General Motors Corporation becomes the first American corporation to make a profit of over one billion dollars in one year.
+		classified as 'Economy': British Leyland launches its new Metro, a three-door entry-level hatchback which is designed as the eventual replacement for the Mini. It gives BL a long-awaited modern competitor for the likes of the Ford Fiesta and Vauxhall Chevette.
+
+	Politics test:
+		classified as 'Politics': Proceedings on the Hague Convention on the Civil Aspects of International Child Abduction conclude at The Hague.
+		classified as 'Politics': Kenan Evren stages a military coup in Turkey. It stops political gang violence, but begins stronger state violence leading to the execution of many young activists.
+		classified as 'War': In South Korea, military government forces and pro-democracy protesters clash; 2,000 protesters die.
+		classified as 'Politics': Former California Governor and actor Ronald Reagan is nominated for U.S. President, at the Republican National Convention in Detroit, Michigan. Influenced by the Religious Right, the convention also drops its long standing support for the Equal Rights Amendment, dismaying moderate Republicans.
+		classified as 'War': A coup in Suriname ousts the government of Henck Arron; leaders Desi Bouterse and Roy Horb replace it with a National Military Council.
+
+	Science test:
+		classified as 'Science': The immunosuppressant cyclosporine is approved by the FDA, leading to a revolution in the field of transplantation.
+		classified as 'Science': Apple Inc. releases the Apple Lisa personal computer.
+		classified as 'Science': Prometea, the first horse cloned by Italian scientists, is born.
+		classified as 'Science': NASA's Mars Reconnaissance Orbiter enters Mars orbit.
+		classified as 'Accidents': The CERN particle accelerator is inaugurated in Geneva, Switzerland.
+
+	War test:
+		classified as 'War': The Battle of Dien Bien Phu ends in a French defeat (the battle began on March 13).
+		classified as 'War': The Korean War ends: The United States, People's Republic of China, North Korea, and South Korea sign an armistice agreement.
+		classified as 'War': President Harry Truman sends United States military advisers to Vietnam to aid French forces.
+		classified as 'War': East Germany threatens to form its own army.
+		classified as 'War': The last Kuomintang troops surrender in mainland China.
+
+
+Creating subsets #7...
+Training subset #7...
+Testing classification of subset 7...
+
+	Accidents test:
+		classified as 'Accidents': Tornadoes ravage the lower Mississippi River Valley, leaving 208 dead, through March 22.
+		classified as 'Accidents': Mauna Loa in Hawaii starts erupting.
+		classified as 'Crime': Iranian Embassy Siege: Six Iranian-born terrorists take over the Iranian embassy in London, UK. SAS retakes the Embassy on May 5; 1 terrorist survives.
+		classified as 'Science': The Mi Amigo, the ship that housed pirate radio station Radio Caroline, sinks (Radio Caroline returns aboard a new ship in 1983).
+		classified as 'Accidents': A McDonnell Douglas DC-9 belonging to the Italian Airline Itavia crashes into the sea near Palermo after an explosion occurs in the air; 81 people die. A bomb or a missile is suspected to be the cause of the accident but no culprits are ever found.
+
+	Crime test:
+		classified as 'Politics': The United States Senate votes 67–22 to condemn Joseph McCarthy for "conduct that tends to bring the Senate into dishonor and disrepute."
+		classified as 'Crime': John Lennon, an English-American musician and peace activist, is murdered by Mark David Chapman in New York City.
+		classified as 'Crime': The St. Pauls riot breaks out in Bristol.
+		classified as 'War': Abscam: FBI personnel target members of the Congress of the United States in a sting operation.
+		classified as 'Accidents': James Alexander George Smith "Jags" McCartney the Turks and Caicos Islands’ first Chief Minister, was killed in a plane crash over New Jersey.
+
+	Cultural test:
+		classified as 'Cultural': The comic strip Peanuts by Charles M. Schulz is first published in 7 U.S. newspapers.
+		classified as 'Cultural': The Washington Post publishes Janet Cooke's story of Jimmy, an 8-year-old heroin addict (later proven to be fabricated).
+		classified as 'Economy': Talpiot Tomb is found in Jerusalem.
+		classified as 'Cultural': The XIII Winter Olympics open in Lake Placid, New York.
+		classified as 'Cultural': Ian Curtis, singer/songwriter of acclaimed post punk band Joy Division, found hanged.
+
+	Economy test:
+		classified as 'Politics': An estimated 1,600,000 workers in the United Kingdom stop work in support of a Trade Union Congress "day of national protest and stoppage" against the Government's anti-inflation policy.
+		classified as 'Economy': The Japanese 10 yen coin is issued with serrated edges for a 5-year period, beginning in 1953. All 10 yen coins since have had smooth edges.
+		classified as 'Economy': The Thomson Corporation says that The Times and all associated supplements will close in March 1981 if no buyer can be found.
+		classified as 'Accidents': The Silver Thursday market crash occurs.
+		classified as 'Economy': The Marshall Plan expires after distributing more than $13.3 billion USD in foreign aid to rebuild Europe.
+
+	Politics test:
+		classified as 'Politics': The Polish government recognizes Solidarity.
+		classified as 'Science': Apartheid: The African National Congress in South Africa publishes a statement by their imprisoned leader Nelson Mandela, which says in part: 'UNITE! MOBILISE! FIGHT ON! BETWEEN THE ANVIL OF UNITED MASS ACTION AND THE HAMMER OF THE ARMED STRUGGLE WE SHALL CRUSH APARTHEID!'
+		classified as 'Crime': Pierre Trudeau returns to office as Prime Minister of Canada.
+		classified as 'Politics': Canadian caper: Six United States diplomats, posing as Canadians, manage to escape from Tehran, Iran as they board a flight to Zürich, Switzerland.
+		classified as 'Crime': New York City's Transport Works Union Local 100 goes on strike, which continues for 11 days.
+
+	Science test:
+		classified as 'Economy': The first pagers are developed.
+		classified as 'Science': A total solar eclipse is seen over Antarctica.
+		classified as 'Crime': Arthur Leonard Schawlow & Charles Hard Townes receive the first patent for a laser.
+		classified as 'Science': The St. Gotthard Tunnel opens in Switzerland as the world's longest highway tunnel at 10.14 miles (16.32 km), stretching from Goschenen to Airolo.
+		classified as 'Cultural': Apollo program: Apollo 13 (Jim Lovell, Fred Haise, Jack Swigert) is launched toward the Moon.
+
+	War test:
+		classified as 'Politics': Guatemalan President Jacobo Arbenz Guzmán steps down in a CIA-sponsored military coup, triggering a bloody civil war that continues for more than 35 years.
+		classified as 'War': Operation Ripper: In Korea, United Nations troops led by General Matthew Ridgeway begin an assault against the Chinese "volunteers".
+		classified as 'War': Two Viet Minh battalions attack a French base in French Indochina.
+		classified as 'War': The command council of Iraq orders its army to "deliver its fatal blow on Iranian military targets," initiating the Iran–Iraq War.
+		classified as 'War': Klaus Fuchs is convicted in London of spying against both Britain and the United States for the Soviet Union, by giving to the latter top secret atomic bomb data.
+
+
+Creating subsets #8...
+Training subset #8...
+Testing classification of subset 8...
+
+	Accidents test:
+		classified as 'Science': Hurricane Allen (category 3) pounds southeastern Texas.
+		classified as 'Accidents': A water storage tank collapses in Tucumcari, New Mexico, resulting in 4 deaths, and 200 buildings destroyed.
+		classified as 'Crime': At least 200 people were killed when the Corralejas Bullring collapsed at Sincelejo, Colombia.
+		classified as 'Economy': The Great Flood of 1951 reaches its highest point in Northeast Kansas, culminating in the greatest flood damage to date in the Midwestern United States.
+		classified as 'Accidents': A phenomenal winter storm ravages the northeastern United States, brings 30 to 50 inches of snow, temperatures below zero, and kills 323 people.
+
+	Crime test:
+		classified as 'War': Internal conflict in Peru: On the eve of presidential elections, Maoist guerrilla group Shining Path attacks a polling location in the town of Chuschi, Ayacucho.
+		classified as 'Crime': Jomo Kenyatta is sentenced to 7 years in prison for the alleged organization of the Mau Mau Rebellion.
+		classified as 'Crime': The president of Sicily, Piersanti Mattarella, is assassinated by the Mafia.
+		classified as 'Crime': Georg Dertinger, foreign minister of East Germany, is arrested for spying.
+		classified as 'Crime': Second Red Scare: Ethel and Julius Rosenberg are convicted of conspiracy to commit espionage. On April 5 they are sentenced to receive the death penalty.
+
+	Cultural test:
+		classified as 'Cultural': The New York Islanders win their first Stanley Cup, from a goal by Bobby Nystrom in overtime of game six of the Stanley Cup playoffs's final round.
+		classified as 'Politics': In his encyclical Humani Generis, Pope Pius XII declares evolution to be a serious hypothesis that did not contradict essential Catholic teachings.
+		classified as 'Cultural': Nigel Short, 14, becomes the youngest chess player to be awarded the degree of International Master.
+		classified as 'Politics': Turkey: The Adhan in Arabic is legalized.
+		classified as 'Cultural': Influential British comic Eagle (comic) is launched.
+
+	Economy test:
+		classified as 'Economy': West Germany joins the IMF and the World Bank.
+		classified as 'Science': The Inter-American Development Bank (IADB) is established.
+		classified as 'Economy': U.S. President Jimmy Carter signs legislation approving $1.5 billion in loan guarantees to bail out the Chrysler Corporation.
+		classified as 'Economy': European Economic Community (EEC) founded.
+		classified as 'Economy': The Dow Jones Industrial Average closes above 500 for the first time rising 2.40 points, or 0.48%, to 500.24.
+
+	Politics test:
+		classified as 'War': Samuel Kanyon Doe takes over Liberia in a coup d'état, ending over 130 years of democratic presidential succession in that country.
+		classified as 'Economy': The Staggers Rail Act is enacted, deregulating American railroads.
+		classified as 'Science': Changes to the Swedish Act of Succession make Victoria of Sweden Crown Princess and therefore next in line to the throne, ahead of her younger brother.
+		classified as 'Economy': Bülent Ulusu, ex admiral, forms the new government of Turkey (44th government, composed mostly of technocrats)
+		classified as 'Politics': Vanuatu gains independence.
+
+	Science test:
+		classified as 'Politics': Botanist Hugo de Vries rediscovers Mendel's laws of heredity.
+		classified as 'Economy': The GNU Project is announced publicly on the net.unix-wizards and net.usoft newsgroups.
+		classified as 'Science': Global Positioning System time epoch begins at 00:00 UTC.
+		classified as 'Cultural': IBM releases the IBM PC XT.
+		classified as 'Science': Total solar eclipse
+
+	War test:
+		classified as 'War': Korean War: North Korean forces capture Seoul.
+		classified as 'War': French troops begin the battle against the Viet Minh in Dien Bien Phu.
+		classified as 'Politics': In Saudi Arabia, 63 Muslim fanatics are beheaded for their part in the siege of the Great Mosque in Mecca in November, 1979.
+		classified as 'War': French paratroopers take Dien Bien Phu.
+		classified as 'War': The last Finnish war reparations are sent to the Soviet Union.
+
+
+Creating subsets #9...
+Training subset #9...
+Testing classification of subset 9...
+
+	Accidents test:
+		classified as 'Accidents': El Asnam, Algeria is destroyed by an earthquake, which claims more than 2,600 lives. After the quake, El Asnam is rebuilt and changes its name to the city of Chlef.
+		classified as 'Accidents': The Po River floods in northern Italy.
+		classified as 'Accidents': The British submarine Truculent collides with a Swedish oil tanker in the Thames Estuary and sinks; 64 die.
+		classified as 'Accidents': An earthquake and floods in Assam, India kill 574 and leave 5,000,000 homeless.
+		classified as 'Accidents': A Dan-Air Boeing 727 crashes in Tenerife, killing all 146 occupants and marking the worst air disaster involving a British-registered aircraft in terms of loss of life.
+
+	Crime test:
+		classified as 'Accidents': A Unabomber bomb injures United Airlines president Percy Wood in Lake Forest, Illinois.
+		classified as 'Crime': Derek Bentley is executed for murder in HM Prison Wandsworth.
+		classified as 'Crime': Former Nicaraguan President Anastasio Somoza Debayle is killed in Asunción, Paraguay.
+		classified as 'Crime': Accused communist spy Alger Hiss is convicted of perjury.
+		classified as 'Crime': Mafioso Angelo Bruno is assassinated in Philadelphia.
+
+	Cultural test:
+		classified as 'Cultural': West Germany beats Belgium 2-1 to win the Euro 80.
+		classified as 'Crime': Florence Chadwick swims across the English Channel in 13 hours, 22 minutes.
+		classified as 'Politics': Mohammad Reza Pahlavi, deposed shah of Iran, dies in Cairo.
+		classified as 'Cultural': The Academia de la Llingua Asturiana (Academy of the Asturian Language) is created.
+		classified as 'War': The first rock music festival kicks off in the Soviet Union.
+
+	Economy test:
+		classified as 'Economy': Walter Ulbricht announces that the agriculture will be collectivized in East Germany.
+		classified as 'Economy': Yugoslavia and Spain set trade relations (not diplomatic ones).
+		classified as 'Economy': 4 million workers go on strike in France to protest austerity measures.
+		classified as 'Science': The first nuclear-generated electrical power is sold commercially, partially powering the town of Arco, Idaho.
+		classified as 'Economy': Associated Newspapers announces that The Evening News will close and merge with the Evening Standard.
+
+	Politics test:
+		classified as 'Cultural': Yugoslav President Tito dies. The funeral ceremony later becomes the world's biggest diplomatic meeting and media event ever, with more than 140 state delegations in Belgrade from all over the world (only the funeral of Pope John Paul II in April 2005 will have more news coverage and a higher number of delegations).
+		classified as 'Politics': The Mariel Boatlift officially ends.
+		classified as 'Crime': The International Court of Justice calls for the release of U.S. Embassy hostages in Tehran.
+		classified as 'Politics': Vigdis Finnbogadottir is elected president of Iceland.
+		classified as 'Politics': Ayatollah Ruhollah Khomeini states that Iran's parliament will decide the fate of the American embassy hostages.
+
+	Science test:
+		classified as 'Science': A powerful solar flare, later named the Bastille Day event, causes a geomagnetic storm on Earth.
+		classified as 'Science': The lowest temperature on earth is recorded in Vostok Station, Antarctica with −89.2 °C (−128.6 °F).
+		classified as 'Science': Dewey, the first deer cloned by scientists at Texas A&M University, is born.
+		classified as 'Science': The Mars Reconnaissance Orbiter is launched.
+		classified as 'Accidents': A Texaco oil rig breaks through to a mine under Lake Peigneur.
+
+	War test:
+		classified as 'War': Korean War: While in an F-80, United States Air Force Lt. Russell J. Brown intercepts 2 North Korean MiG-15s near the Yalu River and shoots them down in the first jet-to-jet dogfight in history.
+		classified as 'War': Finland and Germany officially end their state of war.
+		classified as 'War': Korean War: North Korean and Chinese troops force a retreat of United Nations forces from North Korea.
+		classified as 'War': The first military exercises for nuclear war, with infantry troops included, are held in the Nevada desert.
+		classified as 'War': President Harry S. Truman orders the development of the hydrogen bomb, in response to the detonation of the Soviet Union's first atomic bomb in 1949.
+
+
+Creating subsets #10...
+Training subset #10...
+Testing classification of subset 10...
+
+	Accidents test:
+		classified as 'Accidents': West Ice accidents: During a severe storm in the West Ice, east of Greenland, 78 seal hunters on 5 Norwegian seal hunting vessels perish without a trace.
+		classified as 'Accidents': A magnitude 7.5 earthquake (Richter scale) strikes Tehachapi, California, destroying unreinforced brick buildings.
+		classified as 'Accidents': In Florida, the Liberian freighter Summit Venture hits the Sunshine Skyway Bridge over Tampa Bay, sending 35 people (most of whom were in a bus) to a watery death as a 1,400-foot section of the bridge collapses.
+		classified as 'Accidents': A bomb-laden B-29 Superfortress crashes into a residential area in California; 17 are killed, 68 injured.
+		classified as 'Accidents': In one of aviation's worst disasters, 301 persons are killed when Saudia Flight 163 catches fire in Riyadh, Saudi Arabia.
+
+	Crime test:
+		classified as 'Crime': The case of Lothar Malskat, who had admitted that he had painted the supposedly antique frescoes in Marienkirche himself, goes to trial.
+		classified as 'Crime': José Antonio Remón Cantera, president of Panama, is assassinated at a race track in Panama City.
+		classified as 'Accidents': Pennsylvania Lottery Scandal: the Pennsylvania Lottery is rigged by 6 men including the host of the live TV drawing, Nick Perry.
+		classified as 'Accidents': Great Brinks Robbery: 11 thieves steal more than $2 million from an armored car in Boston, Massachusetts.
+		classified as 'Cultural': In Los Angeles, comedian Richard Pryor is badly burned trying to freebase cocaine.
+
+	Cultural test:
+		classified as 'Cultural': The Agate Pass Bridge opens for traffic in Washington State.
+		classified as 'Economy': The Federal Communications Commission issues the first license to broadcast television in color, to CBS (RCA will successfully dispute and block the license from taking effect, however).
+		classified as 'Accidents': Chicago, Rock Island and Pacific Railroad operates its final train.
+		classified as 'Science': A then-record number of viewers (for an enterntainment program) tune into the U.S. TV soap opera Dallas to learn who shot lead character J.R. Ewing. The "Who shot J.R.?" event is a international obsession.
+		classified as 'Economy': The Cable News Network (CNN) is officially launched.
+
+	Economy test:
+		classified as 'Economy': The British Trade Union Congress expels 20 members for registering under the Industrial Relations Act 1971.
+		classified as 'Economy': In the United Kingdom, due to coal shortages caused by industrial action, the Three-Day Week electricity consumption reduction measure comes into force.
+		classified as 'Science': Duration of the CESDAP plan extended indefinitely.
+		classified as 'Economy': The Dow Jones Industrial Average rises 3.27 points, or 0.86%, closing at an all-time high of 382.74. More significantly, this is the first time the Dow has surpassed its 1929 peak level reached just before that year's crash.
+		classified as 'Politics': The Nordic Council agrees to the free transport of people, goods and services throughout the Nordic Countries.
+
+	Politics test:
+		classified as 'Cultural': Reza Pahlavi, eldest son of the shah of Iran, proclaims himself the rightful successor to the Peacock Throne.
+		classified as 'Politics': United States presidential election, 1980: Republican challenger and former Governor Ronald Reagan of California defeats incumbent Democratic President Jimmy Carter, exactly 1 year after the beginning of the Iran hostage crisis.
+		classified as 'Politics': Robert Mugabe is elected Prime Minister of Zimbabwe.
+		classified as 'Politics': U.S. President Jimmy Carter signs Proclamation 4771, requiring 18- to 25-year-old males to register for a peacetime military draft, in response to the Soviet invasion of Afghanistan.
+		classified as 'Cultural': Queen Juliana of the Netherlands abdicates, and her daughter Beatrix ascends to the throne.
+
+	Science test:
+		classified as 'Science': The first TV remote control, Zenith Radio's Lazy Bones, is marketed.
+		classified as 'War': Nuclear testing at the Nevada Test Site begins with a 1-kiloton bomb dropped on Frenchman Flat, northwest of Las Vegas, Nevada.
+		classified as 'War': The United States launches the first weather satellite, TIROS-1.
+		classified as 'Science': The first 13th root calculation of a 200-digit number is computed by Frenchman Alexis Lemaire.
+		classified as 'Science': Tycho observes a solar eclipse from Benatký. Shortly afterwards, he moves to Prague.
+
+	War test:
+		classified as 'Politics': The Geneva Conference sends French forces to the south, and Vietnamese forces to the north, of a ceasefire line, and calls for elections to decide the government for all of Vietnam by July 1956. Failure to abide by the terms of the agreement leads to the establishment de facto regimes of North Vietnam and South Vietnam, and the Vietnam War.
+		classified as 'War': The Viet Minh takes control of North Vietnam.
+		classified as 'War': Albert Einstein warns that nuclear war could lead to mutual destruction.
+		classified as 'War': Chinese communist forces move into Lhasa, the capital of Tibet.
+		classified as 'War': The 1950-1951 invasion of Tibet by China begins.
+ Seoul.
