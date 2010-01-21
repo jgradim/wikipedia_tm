@@ -69,7 +69,7 @@ In a technical way of speaking this is a really stimulating project considering 
 
 The Ruby programming language was used to build the whole application (back-end and web application). This language was chosen mainly because it is a modern language, with great support for string processing, date and time parsing and regular expressions. The fact that the language has a very large and active community and can be easily extended with modules called \textit{gems} further increases its flexibility and power.
 
-\subsection{Pre-Processing}
+\subsection{Data Pre-Processing}
 
 All the necessary data to build the application database was extracted from Wikipedia ``year pages'' containing the main events for a particular year (e.g. \verb!http://en.wikipedia.org/wiki/1980!).\\
 
@@ -78,7 +78,7 @@ Some difficulties were faced in this process due to the lack of a suitable page 
 To parse the HTML in the pages the ruby gem \verb!Nokogiri!. After getting the page source, the parser in addition with XPath queries was used to navigate throw the elements in the page and filter only the relevant information about an event, meaning, the event itself and its date.
 
 
-\subsection{Text classification}
+\subsection{Text Classification}
 \label{subsec:approach:text-classification}
 
 Text classification is a problem that aims to categorize documents or simple sentences in one or more categories, based on their contents. This can be achieved using either Support Vector Machines or a naive Bayes classifier. Unlike Support Vector Machines, which produce a \textit{binary classification}, i.e. either the text is in a certain category or is not, a naive Bayes classifier allows for a number of arbitrary categories. A naive Bayes classifier can be trained using a set of pre-classified sentences in a \textit{supervised learning} setting, yielding very satisfactory results when classifying unknown sentences (about 80\%-90\% of correct results, depending on the size and quality of the training set).\cite{russel}\\
@@ -99,7 +99,7 @@ A training set was built using random events selected from the Wikipedia pages f
 	\item \textit{War}: Prisoners of war, invasions and occupations, military events
 \end{itemize}
 
-\subsection{Natural Language Processing}
+\subsection{Feature Extraction}
 \label{subsec:approach:nlp}
 
 Text mining is the process of extracting high quality, useful data from text. This can be accomplished through semantical and phrasal structure analysis. The Stanford Parser is a probabilist parser that aims to produce the \textit{most likely} analysis of new sentences; although this can sometimes lead to some errors, the overall result is very satisfactory, producing accurate trees for almost every parsed sentence(s).\\
@@ -118,7 +118,7 @@ The extraction was performed by traversing the parse tree and analyzing the orde
 	\label{fig:people-extraction}
 \end{figure}
 
-Fig. \ref{fig:people-extraction} shows the sub-tree relating to singular proper nouns (NNP) nodes, from where people involved in the event can be extracted. As the phrasal structure does not allow for easy extraction of this information (this structure alone can not infer if the proper nouns refer to a country or a name or even a brand), a sentence is only considered to refer to a person or people only when an NP (noun phrase) node has at least two contiguous NNP child nodes.
+Fig. \ref{fig:people-extraction} shows the sub-tree relating to singular proper nouns (NNP) nodes, from where people involved in the event can be extracted. As the phrasal structure does not allow for easy extraction of this information (this structure alone can not infer if the proper nouns refer to a country or a name or even a brand), a sentence is only considered to refer to a person or people only when an NP (noun phrase) node has at least two contiguous NNP child nodes. This leads to the extraction of not only people but also entities and some cities or countries, like ``High Court'' or ``Santa Barbara''.
 
 \newpage
 \subsection{Location extraction}
@@ -155,9 +155,15 @@ In addition, when a valid location for the event is found, a request is made to 
 
 \section{Results}
 
-\subsection{Text classification}
+\subsection{Text Classification}
 
 Using the naive Bayes classifier implementation by Lucas Carlson and David Fayram II\cite{classifier} it was possible to classify the extracted events in the seven categories referred in section \ref{subsec:approach:text-classification}. The accuracy of this classification is shown on Fig. \ref{fig:classifier-accuracy}.
+
+\subsubsection{Metodology}
+
+Ten test runs were made in order to assess the accuracy of the classifier implementation used: from the 350 manually classified examples, 315 were extracted for classification and 35 for testing. The test samples were not included in the classification. Each of the test runs used different samples for classification and testing from the previous runs. 
+
+\subsubsection{Results}
 
 \begin{figure}[h!]
 	\centering
@@ -180,7 +186,7 @@ Using the naive Bayes classifier implementation by Lucas Carlson and David Fayra
 
 From a total of 145 events, 103 were classified correctly, which yields an accuracy of 71\%. However, some of the events are difficult even for humans to classify, bringing the expected classification accuracy of a larger test set to be between 75\%-80\%. It must be noted that there is a very fine line between economic and political events, which may lead to some bias towards the political side in the training set.
 
-\subsection{Information extraction}
+\subsection{Entities Extraction}
 
 The techniques described in sections \ref{subsec:approach:nlp}, \ref{subsec:approach:entities-extraction}, \ref{subsec:approach:location-extraction} allow the extraction of features from sentences. The accuracy of these techniques is shown in Fig. \ref{fig:feature-extraction-accuracy}.
 
