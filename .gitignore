@@ -1,4 +1,5 @@
 wikipedia/log/*.log
+!wikipedia/log/classification.log
 wikipedia/tmp/**/*
 wikipedia/doc/api
 wikipedia/doc/app
