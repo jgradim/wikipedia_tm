@@ -161,30 +161,56 @@ Using the naive Bayes classifier implementation by Lucas Carlson and David Fayra
 
 \subsubsection{Metodology}
 
-Ten test runs were made in order to assess the accuracy of the classifier implementation used: from the 350 manually classified examples, 315 were extracted for classification and 35 for testing. The test samples were not included in the classification. Each of the test runs used different samples for classification and testing from the previous runs. 
+Ten test runs were made in order to assess the accuracy of the classifier implementation used: from the 350 manually classified examples, 315 were extracted for classification and 35 for testing. The test samples were not included in the classification. Each of the test runs used different samples for classification and testing from the previous runs. Accuracy is defined as
+\begin{figure}
+	\centering
+	\Large{$accuracy = \frac{correct\ results}{sample\ size}$}
+	\caption{Classification accuracy definition}
+\end{figure}
 
 \subsubsection{Results}
 
+%\begin{figure}[h!]
+%	\centering
+%	\begin{tabular}{c|c|c}
+%		 & \textbf{correctly classified as} & \textbf{incorrectly classified as} \\
+%		\hline
+%		\textbf{Accidents} & 19 & 4 \\
+%		\textbf{Crime}     & 14 & 5 \\
+%		\textbf{Cultural}  & 12 & 2 \\
+%		\textbf{Economy}   & 5 & 16 \\
+%		\textbf{Politics}  & 29 & 1 \\
+%		\textbf{Science}   & 12 & 7 \\
+%		\textbf{War}       & 10 & 7 \\
+%		\hline
+%		\textbf{Total}     & 103 & 42 \\
+%	\end{tabular}
+%	\caption{Accuracy of events classification using a naive Bayes classifier}
+%	\label{fig:classifier-accuracy}
+%\end{figure}
 \begin{figure}[h!]
 	\centering
-	\begin{tabular}{c|c|c}
-		 & \textbf{correctly classified as} & \textbf{incorrectly classified as} \\
-		\hline
-		\textbf{Accidents} & 19 & 4 \\
-		\textbf{Crime}     & 14 & 5 \\
-		\textbf{Cultural}  & 12 & 2 \\
-		\textbf{Economy}   & 5 & 16 \\
-		\textbf{Politics}  & 29 & 1 \\
-		\textbf{Science}   & 12 & 7 \\
-		\textbf{War}       & 10 & 7 \\
-		\hline
-		\textbf{Total}     & 103 & 42 \\
+	\begin{tabular}{c|c|c|c}
+	\textbf{Test Run} & \textbf{Correct} & \textbf{Incorrect} & \textbf{Accuracy}\\
+	\hline
+	1 & 21 & 14 & 60.0\% \\
+	2 & 22 & 13 & 62.9\% \\
+	3 & 29 & 6 & 82.9\% \\
+	4 & 25 & 10 & 71.4\% \\
+	5 & 23 & 12 & 65.7\% \\
+	6 & 26 & 9 & 74.3\% \\
+	7 & 20 & 15 & 57.1\% \\
+	8 & 20 & 15 & 57.1\% \\
+	9 & 27 & 8 & 77.1\% \\
+	10 & 21 & 14 & 60\% \\
+	\hline
+	Total & 234 & 116 & 66.8 \%
 	\end{tabular}
 	\caption{Accuracy of events classification using a naive Bayes classifier}
 	\label{fig:classifier-accuracy}
 \end{figure}
 
-From a total of 145 events, 103 were classified correctly, which yields an accuracy of 71\%. However, some of the events are difficult even for humans to classify, bringing the expected classification accuracy of a larger test set to be between 75\%-80\%. It must be noted that there is a very fine line between economic and political events, which may lead to some bias towards the political side in the training set.
+From a total of 10 test runs, 234 out of 350 events were correctly classified, yielding an accuracy of 66.8\%. However, some of the events are difficult even for humans to classify, bringing the expected classification accuracy of a larger test set to be between 70\%-75\%. It must be noted that there is a very fine line between economic and political events, which may lead to some bias towards the political side in the training set.
 
 \subsection{Entities Extraction}
 
@@ -213,7 +239,7 @@ This evaluation was performed with these criteria:
 	\item All other cases result in an unsuccessful extraction
 \end{itemize}
 
-\section{Conclusions}
+\section{Final Remarks}
 
 The main objectives of the text mining applied in this project were fulfilled. Text classification results could be improved by using a larger and a less biased training set. However, for a training set this size, the results are quite acceptable. Feature extraction using natural language processing can also be considered successful as location and people involved in the majority of the events were successfully extracted. However, a more detailed analysis of the phrasal structures could be the key to less ``noise'' when extracting these informations.
 
