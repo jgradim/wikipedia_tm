@@ -44,7 +44,7 @@ This paper documents the implementation of a system that processes the World's m
 
 Information on Wikipedia is readily available but is not easily searchable. It requires manual searching through entire articles to find a specific piece of information and you cannot apply any kind of filter so you can have search results more specific and according to your needs. Also, tables and lists are becoming deprecated as the only means of presenting information: they begin to be more and more only an auxiliary to more intuitive, graphical and versatile ways of showing information. In what concerns to get data processed so it can be shown in such ways, it can be can assumed that natural language processing (NLP) can work as an ally to further refine data so it becomes richer and therefore be used in more efficient way.\\
 
-In this particular case, information about World's history will be gathered (only from Wikipedia at this stage): these events will be classified using a naive Bayes classifier and the people involved and location of the events will be parsed using natural language processing techniques, with help from the Stanford Parser\cite{sp}, in order to provide easier and more human readable information.\\
+In this particular case, information about World's history will be gathered (only from Wikipedia at this stage) and two distinct operations will be performed: these events will be classified using a naive Bayes classifier and the people involved and location of the events will be parsed using natural language processing techniques, with help from the Stanford Parser\cite{sp}, in order to provide easier and more human readable information.\\
 
 \subsection{Objectives}
 
@@ -63,6 +63,20 @@ Therefore, the ``philosophical'' motivation of this project is to create a simpl
 In a technical way of speaking this is a really stimulating project considering that natural language processing is a subject where many expectations relies on, due to the fact that it is an area that aims to bridge the gap between human and computer communication.
 
 \section{State of the art}
+
+Considering the amount of data stored at Wikipedia, text mining it became a subject of study in the early 2000's. Some work have been done in order to build answering questions and computing semantic relatedness.
+
+\subsection{Wikipedia Mining for Triple Extraction - Enhanced by Co-reference Resolution}
+
+In a 2008 project from  a method that analyzes both Wikipedia article texts and its link structures in order to extract semantic relations was experimented. The method includes a preprocessing phase that trims the Wikipedia article to remove unnecessary information such as HTML tags and special Wiki commands\cite{nakayama} and after that a structure tree is built and analyzed using Standford parser to identify the triples subject in order to extract an article's ontology showing both detailed statistics and the effectiveness of integrating parsing and link structure mining methods.
+
+\subsection{Using Wikipedia at the TREC QA Track}
+
+In 2004, a group from Informatics Institute, University of Amsterdam presented a question answering based on mining facts from targeted Wikipedia corpus in order to answer to factoid questions and what they called "other" questions (questions for which the answer is not a single named entity, but a list of information nuggets). The technique consists in comparing facts extracted from a provided target collection to the information from a reference resource (Wikipedia)\cite{ahn}.
+
+\subsection{WikiRelate! Computing Semantic Relatedness Using Wikipedia}
+
+This work from Michael Strube and Simone Paolo Ponzetto presented experiments on using Wikipedia for computing semantic relatedness and compare it to WordNet\footnote{WordNet\textregistered\ is a large lexical database of English, developed under the direction of George A. Miller. Nouns, verbs, adjectives and adverbs are grouped into sets of cognitive synonyms (synsets), each expressing a distinct concept.} on various benchmarking datasets\cite{strube}.
 
 \section{Approach}
 \label{sec:approach}
@@ -83,9 +97,7 @@ To parse the HTML in the pages the ruby gem \verb!Nokogiri!. After getting the p
 
 Text classification is a problem that aims to categorize documents or simple sentences in one or more categories, based on their contents. This can be achieved using either Support Vector Machines or a naive Bayes classifier. Unlike Support Vector Machines, which produce a \textit{binary classification}, i.e. either the text is in a certain category or is not, a naive Bayes classifier allows for a number of arbitrary categories. A naive Bayes classifier can be trained using a set of pre-classified sentences in a \textit{supervised learning} setting, yielding very satisfactory results when classifying unknown sentences (about 80\%-90\% of correct results, depending on the size and quality of the training set).\cite{russel}\\
 
-EXPLICAR O NAIVE BAYES\\
-
-In order to classify the many events extracted, a Ruby implementation of a naive Bayes classifier\cite{classifier} was used. The objective was to train the classifier in 7 categories (shown below) in order to categorize the extracted events (based on a series of keywords particular to that category) to allow for easy searching and filtering. The classifier implementation used tokenizes the given sentences by whitespace, effectivelly using each word (unigram) of the sentence, stemmed to its root (when possible) as the classification features.\\
+In order to classify the many events extracted, a Ruby implementation of a naive Bayes classifier\cite{classifier} was used. The objective was to train the classifier in 7 categories (shown below) in order to categorize the extracted events (based on a series of keywords particular to that category) to allow for easy searching and filtering. The classifier implementation used tokenizes the given sentences by white space, effectively using each word (uni-gram) of the sentence, stemmed to its root (when possible) as the classification features.\\
 
 A training set was built using random events selected from the Wikipedia pages from 1950 to 2005. 50 examples were used for each of the seven categories, totaling 350 examples:
 
@@ -108,7 +120,7 @@ A parse tree containing the phrasal structure of a sentence can be obtained by u
 
 The extraction was performed by traversing the parse tree and analyzing the order of the nodes. For example, a tree like Fig. \ref{fig:location-extraction} (a), when traversed, produces these nodes, in order: \verb!PP, IN, NP, NPP!. The analysis of this order allows to determine if a section of the sentence refers to a location or a person or people.
 
-\subsection{Entities Extraction}
+\subsection{Feature Extraction}
 \label{subsec:approach:entities-extraction}
 
 \begin{figure}[h!]
@@ -120,7 +132,7 @@ The extraction was performed by traversing the parse tree and analyzing the orde
 
 Fig. \ref{fig:people-extraction} shows the sub-tree relating to singular proper nouns (NNP) nodes, from where people involved in the event can be extracted. As the phrasal structure does not allow for easy extraction of this information (this structure alone can not infer if the proper nouns refer to a country or a name or even a brand), a sentence is only considered to refer to a person or people only when an NP (noun phrase) node has at least two contiguous NNP child nodes. This leads to the extraction of not only people but also entities and some cities or countries, like ``High Court'' or ``Santa Barbara''.
 
-\newpage
+%\newpage
 \subsection{Location extraction}
 \label{subsec:approach:location-extraction}
 
@@ -159,9 +171,9 @@ In addition, when a valid location for the event is found, a request is made to 
 
 Using the naive Bayes classifier implementation by Lucas Carlson and David Fayram II\cite{classifier} it was possible to classify the extracted events in the seven categories referred in section \ref{subsec:approach:text-classification}. The accuracy of this classification is shown on Fig. \ref{fig:classifier-accuracy}.
 
-\subsubsection{Metodology}
+\subsubsection{Methodology}
 
-Ten test runs were made in order to assess the accuracy of the classifier implementation used: from the 350 manually classified examples, 315 were extracted for classification and 35 for testing. The test samples were not included in the classification. Each of the test runs used different samples for classification and testing from the previous runs. Accuracy is defined as
+Ten test runs were made in order to assess the accuracy of the classifier implementation used: from the 350 manually classified examples, 315 were extracted for classification and 35 for testing. The test samples were not included in the classification. Each of the test runs used different samples for classification and testing from the previous runs. Accuracy is defined as:
 \begin{figure}
 	\centering
 	\Large{$accuracy = \frac{correct\ results}{sample\ size}$}
@@ -169,25 +181,6 @@ Ten test runs were made in order to assess the accuracy of the classifier implem
 \end{figure}
 
 \subsubsection{Results}
-
-%\begin{figure}[h!]
-%	\centering
-%	\begin{tabular}{c|c|c}
-%		 & \textbf{correctly classified as} & \textbf{incorrectly classified as} \\
-%		\hline
-%		\textbf{Accidents} & 19 & 4 \\
-%		\textbf{Crime}     & 14 & 5 \\
-%		\textbf{Cultural}  & 12 & 2 \\
-%		\textbf{Economy}   & 5 & 16 \\
-%		\textbf{Politics}  & 29 & 1 \\
-%		\textbf{Science}   & 12 & 7 \\
-%		\textbf{War}       & 10 & 7 \\
-%		\hline
-%		\textbf{Total}     & 103 & 42 \\
-%	\end{tabular}
-%	\caption{Accuracy of events classification using a naive Bayes classifier}
-%	\label{fig:classifier-accuracy}
-%\end{figure}
 \begin{figure}[h!]
 	\centering
 	\begin{tabular}{c|c|c|c}
@@ -210,11 +203,23 @@ Ten test runs were made in order to assess the accuracy of the classifier implem
 	\label{fig:classifier-accuracy}
 \end{figure}
 
-From a total of 10 test runs, 234 out of 350 events were correctly classified, yielding an accuracy of 66.8\%. However, some of the events are difficult even for humans to classify, bringing the expected classification accuracy of a larger test set to be between 70\%-75\%. It must be noted that there is a very fine line between economic and political events, which may lead to some bias towards the political side in the training set.
+From a total of 10 test runs, 234 out of 350 events were correctly classified, yielding an accuracy of 66.8\%. However, some of the events are difficult even for humans to classify, bringing the expected classification accuracy of a larger, more carefully selected test set to be between 70\%-75\%. It must be noted that there is a very fine line between economic and political events, which may lead to some bias towards the political side in the training set.
 
-\subsection{Entities Extraction}
+\subsection{Feature Extraction}
+\label{subsec:results:features-extraction}
 
-The techniques described in sections \ref{subsec:approach:nlp}, \ref{subsec:approach:entities-extraction}, \ref{subsec:approach:location-extraction} allow the extraction of features from sentences. The accuracy of these techniques is shown in Fig. \ref{fig:feature-extraction-accuracy}.
+The techniques described in sections \ref{subsec:approach:nlp}, \ref{subsec:approach:entities-extraction}, \ref{subsec:approach:location-extraction} allow the extraction of features from sentences. The evaluation of this process was performed with these criteria:
+
+\begin{itemize}
+	\item If an event does not contain any people and no people are detected, it is considered a successful extraction
+	\item If an event does not refer to a location and no location is found, it is considered a successful extraction
+	\item If more than one ``person'' is detected and one of them is a person to whom the event refers (even if the other people are not human, but stadiums or countries with more than 2 proper nouns), it is considered a successful extraction\footnote{A collective person, e.g. ``Israeli Air Force'' is considered to be correct if extracted} \footnote{An animal baptized with a name is also considered as ``people'', in regards to what is considered a successful extraction}
+	\item All other cases result in an unsuccessful extraction
+\end{itemize}
+
+\subsubsection{Location}
+
+The general accuracy of these techniques (see section \ref{subsec:results:features-extraction} for criteria) applied to location and entities extraction in events is shown in Fig. \ref{fig:feature-extraction-accuracy}, for a test set of 145 events.
 
 \begin{figure}[h!]
 	\centering
@@ -224,20 +229,15 @@ The techniques described in sections \ref{subsec:approach:nlp}, \ref{subsec:appr
 		\textbf{Correct}   & 96 & 105 \\
 		\textbf{Incorrect} & 49 & 40 \\
 		\hline
-		\textbf{Accuracy}  & 66\% & 72\% \\ 
+		\textbf{Accuracy}  & 66\% & 72\% \\
 	\end{tabular}
 	\caption{Accuracy of feature extraction using natural language processing}
 	\label{fig:feature-extraction-accuracy}
 \end{figure}
 
-This evaluation was performed with these criteria:
+\subsubsection{Entities}
 
-\begin{itemize}
-	\item If an event does not contain any people and no people are detected, it is considered a successful extraction
-	\item If an event does not refer to a location and no location is found, it is construed a successful extraction
-	\item If more than one ``person'' is detected and one of them is a person to whom the event refers (even if the other people are not human, but stadiums or countries with more than 2 proper nouns), it is considered a successful extraction\footnote{A collective person, e.g. ``Israeli Air Force'' is considered to be correct if extracted} \footnote{An animal baptized with a name is also considered as ``people'', in regards to what is considered a successful extraction}
-	\item All other cases result in an unsuccessful extraction
-\end{itemize}
+With a test set of 145 elements, a \textit{precision} of 77.76\% was achieved, with a \textit{recall} of 91.26\%. This shows that the majority of the relevant information was extracted, albeit with a considerable number of false positives. Most of these refer to places and could be pruned from the results by a more careful analysis of the parse tree, by examining ancestor nodes and determining if in fact the \verb!NP! node and its sub-tree refer to a person or entity or a place.
 
 \section{Final Remarks}
 
@@ -255,32 +255,47 @@ This openness lead to another problem: an HTML structure not suited for easy par
 %
 \begin{thebibliography}{}
 %
-\bibitem[1]{santorini}
+\bibitem{santorini}
 Santorini, B. :
 Part-of-Speech Tagging Guidelines for the
 Penn Treebank Project (3rd Revision, 2nd Printing).
 (July 1990)
 
-\bibitem[2]{bies}
+\bibitem{bies}
 Bies, A., Ferguson, M., Katz, K., MacIntyre, R. :
 Bracketing Guidelines for Treebank II
 Penn Treebank Project
 (June 1995)
 
-\bibitem[3]{classifier}
+\bibitem{classifier}
 Carlson, L., Fayram II, D.
 http://classifier.rubyforge.org/
 (September 2005)
 
-\bibitem[4]{sp}
+\bibitem{sp}
 Stanford University
 http://nlp.stanford.edu/software/lex-parser.shtml
 (July 2009)
 
-\bibitem[5]{russel}
+\bibitem{russel}
 Artificial Intelligence: A Modern Approach (2nd Edition)
 Russel, S., Norvig, P.
 (2003)
+
+\bibitem{nakayama}
+Wikipedia Mining for Triple Extraction - Enhanced by Co-reference Resolution
+Nakayama, Kotaro
+(2008)
+
+\bibitem{ahn}
+Using Wikipedia at the TREC QA Track
+Ahn, David, et al.
+(2004)
+
+\bibitem{strube}
+WikiRelate! Computing Semantic Relatedness Using Wikipedia
+Strube, Michael and Ponzetto, Simone Paolo
+(2004)
 
 \end{thebibliography}
 
